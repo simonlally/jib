@@ -1,0 +1,160 @@
+# Regenerate the Xcode project with:  xcodegen generate
+name: Jib
+options:
+  bundleIdPrefix: dev.simonlally
+  deploymentTarget:
+    iOS: "17.0"
+    watchOS: "10.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CODE_SIGN_STYLE: Automatic
+    # Set your Apple Developer team here (or in Xcode > Signing) to run on devices.
+    DEVELOPMENT_TEAM: ""
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+targetTemplates:
+  # One App Group shares the saved bulb list (and last-seen states) between each app and its
+  # widget extension. On devices the group must also be enabled on the App IDs for your team.
+  AppGroup:
+    entitlements:
+      path: ${target_name}/${target_name}.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.dev.simonlally.Jib
+
+targets:
+  Jib:
+    type: application
+    platform: iOS
+    templates: [AppGroup]
+    sources:
+      - Jib
+      - Shared
+    dependencies:
+      - target: JibWatch
+      - target: JibWidget
+    info:
+      path: Jib/Info.plist
+      properties:
+        CFBundleDisplayName: Jib
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        ITSAppUsesNonExemptEncryption: false
+        LSRequiresIPhoneOS: true
+        NSLocalNetworkUsageDescription: Jib talks directly to your smart bulbs over your Wi‑Fi network.
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+        UIApplicationSupportsIndirectInputEvents: true
+        UILaunchScreen: {}
+        UIRequiredDeviceCapabilities: [arm64]
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.simonlally.Jib
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: NO
+    scheme:
+      testTargets:
+        - JibTests
+
+  # Control Center / Lock Screen control. Controls need iOS 18; the app itself still runs on iOS 17
+  # (without the control).
+  JibWidget:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "18.0"
+    templates: [AppGroup]
+    sources:
+      - JibWidget
+      - Shared
+    info:
+      path: JibWidget/Info.plist
+      properties:
+        CFBundleDisplayName: Jib
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSLocalNetworkUsageDescription: Jib talks directly to your smart bulbs over your Wi‑Fi network.
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.simonlally.Jib.widget
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SKIP_INSTALL: YES
+
+  JibWatch:
+    type: application
+    platform: watchOS
+    templates: [AppGroup]
+    sources:
+      - JibWatch
+      - Shared
+    dependencies:
+      - target: JibWatchWidget
+    info:
+      path: JibWatch/Info.plist
+      properties:
+        CFBundleDisplayName: Jib
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        # The complication opens the app with jib://toggle/<bulb id>.
+        CFBundleURLTypes:
+          - CFBundleURLName: dev.simonlally.Jib
+            CFBundleURLSchemes: [jib]
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: dev.simonlally.Jib
+        WKRunsIndependentlyOfCompanionApp: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.simonlally.Jib.watchkitapp
+        TARGETED_DEVICE_FAMILY: "4"
+
+  # Complication / Smart Stack widget on the watch.
+  JibWatchWidget:
+    type: app-extension
+    platform: watchOS
+    templates: [AppGroup]
+    sources:
+      - JibWatchWidget
+      - Shared
+    info:
+      path: JibWatchWidget/Info.plist
+      properties:
+        CFBundleDisplayName: Jib
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.simonlally.Jib.watchkitapp.widget
+        TARGETED_DEVICE_FAMILY: "4"
+        SKIP_INSTALL: YES
+
+  JibTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - JibTests
+    dependencies:
+      - target: Jib
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.simonlally.JibTests
+        GENERATE_INFOPLIST_FILE: YES

@@ -1,0 +1,1019 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05AE0BC4D22676F20EC5AFB7 /* BulbDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */; };
+		0963D3AE2A64702C4339D60B /* WatchBulbListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404739858E4C5D0C3C4D6E5B /* WatchBulbListView.swift */; };
+		0C510ED906D1B8DC70D2CAB7 /* LightState+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0820A61CF54D450CADE5EA /* LightState+Display.swift */; };
+		0EEDA901C16A53AA342BD714 /* BulbModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */; };
+		0EEDB83A2C95CAEA1B88E9CB /* BulbDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018D5EF9C4CC47FC0646C75B /* BulbDetailView.swift */; };
+		1718BF25CF47D3CE3967F587 /* BulbEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44CF7125F92543F53F08AC2 /* BulbEntity.swift */; };
+		17584CB0AB77733512F3B912 /* BulbParsingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA5C6A4FA4975C842274E69 /* BulbParsingTests.swift */; };
+		188BBABC0485A60EB4D01DC1 /* BulbClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752C7D9E8D32EDBC4E53EC7 /* BulbClient.swift */; };
+		1E9269E6813955E252FF1F1C /* BulbDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */; };
+		21B48E216D1D77751D36F206 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCEEBF882C717883370F0 /* Relay.swift */; };
+		2308FB7E60449337FA2343FC /* JibWatchWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7DF781518CAAB165766CA17C /* JibWatchWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		278B012754E244F4124F12CA /* BulbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5BAB605570794AC229EB91 /* BulbStorage.swift */; };
+		2A4DA8BEBEF360989302C659 /* BulbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5BAB605570794AC229EB91 /* BulbStorage.swift */; };
+		2A8235D4C3D63CA0870BBFA6 /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858202ACA5A9E344F53E469B /* DiscoveryView.swift */; };
+		2E13052DFF237FC472EE2B10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8059F6649E9EB9B91ED0466A /* Assets.xcassets */; };
+		2F50F475AA5D4206EA7CC6B4 /* BulbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5BAB605570794AC229EB91 /* BulbStorage.swift */; };
+		3457985CA937A84C3A36B587 /* BulbCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82390F4FE6790DABA41447A /* BulbCommands.swift */; };
+		395D7F34AA0AF9C48E20AE11 /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */; };
+		3CE9C67B1412A113F35F4C9E /* FrameCipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FAE39C68297DC4B70110B0 /* FrameCipherTests.swift */; };
+		3DCEE931E291055E2922A5A7 /* JibApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21CD5775F37DE854E053DAEB /* JibApp.swift */; };
+		46A7A271D94FEC1668D48ADD /* BulbListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6B12A807BA7F944D7F9A65 /* BulbListView.swift */; };
+		4BC7CB9B131BEF4732AD4F94 /* JibWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = BCCA287BF5DA4D6C0FD57C68 /* JibWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4E344D89680FC1EDFD7D2FC8 /* BulbEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44CF7125F92543F53F08AC2 /* BulbEntity.swift */; };
+		51977464B11C882998EE0347 /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */; };
+		52B550568DDF11F68AA8F872 /* WatchBulbDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669F6179E7794FBACECF14B2 /* WatchBulbDetailView.swift */; };
+		54A2FCC9A91687981EC5869A /* BulbModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */; };
+		551904C4D3CE3B5AE42AB86E /* PhoneSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D0AADBA630FDB6570D67EF /* PhoneSessionManager.swift */; };
+		576D50DE6BCE8FA883BCE399 /* BulbDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */; };
+		5D92A18AF7939953E2830B0F /* BulbControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D6D9DCC856AC0F0FAEC107 /* BulbControl.swift */; };
+		5F3D846A2867609B33DF9928 /* BulbCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82390F4FE6790DABA41447A /* BulbCommands.swift */; };
+		5FC7379EE568460E5CB1C6E6 /* FrameCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDF9951B719B09323F04FC /* FrameCipher.swift */; };
+		60D70115FA5DFBB7482C7CBD /* BulbFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F270F810827FC8A67A22FAFA /* BulbFormView.swift */; };
+		65FF342492E1CF4329AA0D41 /* BulbDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */; };
+		66A915A0BA4D51BDBD739E0F /* JibWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D0B7EC996CF577090FAB12F9 /* JibWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6B4D197178BA52758EC69755 /* LiveSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E56EC33C8011D6013F9DC0C /* LiveSlider.swift */; };
+		720DC41936D49B3A915E8989 /* BulbModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */; };
+		7592A8F0C1E77254A7986109 /* BulbStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5BAB605570794AC229EB91 /* BulbStorage.swift */; };
+		7B5964E6298F6236F6D482AA /* JibWatchWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489D64DAB8F79D32AB163CB9 /* JibWatchWidgetBundle.swift */; };
+		841FB4C546220C6F41794FFA /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCEEBF882C717883370F0 /* Relay.swift */; };
+		84FE4EA3405D80BD0D9AA25C /* BulbWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524FCDE38F8E3056922BB3B2 /* BulbWidget.swift */; };
+		884E0471C1833CE1621F4BD5 /* FrameCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDF9951B719B09323F04FC /* FrameCipher.swift */; };
+		9A0A7DE0CEA7F0AC8B337C82 /* BulbModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */; };
+		9A7091E214F250B45B6262C8 /* BulbEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44CF7125F92543F53F08AC2 /* BulbEntity.swift */; };
+		A5362E5143996A958201AE51 /* BulbClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752C7D9E8D32EDBC4E53EC7 /* BulbClient.swift */; };
+		A574215C573F367F1A00F90A /* BulbCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82390F4FE6790DABA41447A /* BulbCommands.swift */; };
+		B26F483C9B2F671ECC4BDB10 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCEEBF882C717883370F0 /* Relay.swift */; };
+		B40FB7F58CFB114B46A7A0AA /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */; };
+		B618931565C984A16A6E46EC /* BulbEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44CF7125F92543F53F08AC2 /* BulbEntity.swift */; };
+		B7AF0F2DF07F86193275DBF7 /* BulbCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82390F4FE6790DABA41447A /* BulbCommands.swift */; };
+		B9BDEF2B61065A359F02D523 /* BulbIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE83492A8C69D0953BEF65D /* BulbIntents.swift */; };
+		BFF8089E4A6016ED21DEA811 /* LightState+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0820A61CF54D450CADE5EA /* LightState+Display.swift */; };
+		C44C81ED7200506A9112DD6D /* SelectBulbIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE76C705D6C8A90B59F94D6F /* SelectBulbIntent.swift */; };
+		C854D428BA0840A762C9E150 /* JibWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8242040FA4A15B70F67296 /* JibWatchApp.swift */; };
+		CBA80DEA47AD30C8D84854E9 /* BulbClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752C7D9E8D32EDBC4E53EC7 /* BulbClient.swift */; };
+		CE1F5BEBDBBB1604C79E14BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B078BD57EEFB59BF34F1DF4 /* Assets.xcassets */; };
+		D1B3A6007D5CB3FCD4D8D181 /* WatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74DA238C42EEEC4F6DE5DCE /* WatchStore.swift */; };
+		D2BD3A0B3B708385A200277F /* FrameCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDF9951B719B09323F04FC /* FrameCipher.swift */; };
+		D3A534E67B00534601219707 /* Relay.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBDCEEBF882C717883370F0 /* Relay.swift */; };
+		D3AFB577F5A7655AC9FE7F62 /* LightState+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0820A61CF54D450CADE5EA /* LightState+Display.swift */; };
+		D3EAF36F28082865878D88A8 /* BulbStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADDAF5C75C92017F933903 /* BulbStore.swift */; };
+		D7490DAB80BC43C8A8E07123 /* LightState+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0820A61CF54D450CADE5EA /* LightState+Display.swift */; };
+		E0C5E7D55B378AC5AD946DBB /* BulbClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9752C7D9E8D32EDBC4E53EC7 /* BulbClient.swift */; };
+		E8C1AB63D7122727EE9C4897 /* LiveBulbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC14338F9151814E6E160E0E /* LiveBulbTests.swift */; };
+		EA7C3E6BE54B74430C26A23D /* FrameCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDF9951B719B09323F04FC /* FrameCipher.swift */; };
+		EB8A1D9E44534F1BF518F3D6 /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */; };
+		F9093828B72340DA771E2333 /* JibWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DA6C7DD6DCCA2D7113DD93 /* JibWidgetBundle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00B9CD4BD9246BB22E7C774A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8A9A18F0D241A7CDAC3067F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A22A5617FAA5805E9BA5C809;
+			remoteInfo = JibWidget;
+		};
+		43D90A9BB8D8F5969260E995 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8A9A18F0D241A7CDAC3067F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80BDDC3D246E05A2B6D97736;
+			remoteInfo = JibWatch;
+		};
+		F42BFCE821CF540431FE1AE3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8A9A18F0D241A7CDAC3067F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 326FC8399AA02A47362411B4;
+			remoteInfo = Jib;
+		};
+		F615832CDF0299D95AD27EF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8A9A18F0D241A7CDAC3067F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1579D82D53CB755C7D71DEEB;
+			remoteInfo = JibWatchWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		59F235FBBFC32481F81BAB9D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				4BC7CB9B131BEF4732AD4F94 /* JibWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B536F4FBFA39412D528068A2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2308FB7E60449337FA2343FC /* JibWatchWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE4DF8C5FE05BAAC5A5B55B2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				66A915A0BA4D51BDBD739E0F /* JibWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		018D5EF9C4CC47FC0646C75B /* BulbDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbDetailView.swift; sourceTree = "<group>"; };
+		049772B317F9A9445CB4C0A7 /* JibWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JibWidget.entitlements; sourceTree = "<group>"; };
+		12D6D9DCC856AC0F0FAEC107 /* BulbControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbControl.swift; sourceTree = "<group>"; };
+		1A0820A61CF54D450CADE5EA /* LightState+Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LightState+Display.swift"; sourceTree = "<group>"; };
+		21CD5775F37DE854E053DAEB /* JibApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JibApp.swift; sourceTree = "<group>"; };
+		2B6B12A807BA7F944D7F9A65 /* BulbListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbListView.swift; sourceTree = "<group>"; };
+		2BCDF9951B719B09323F04FC /* FrameCipher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCipher.swift; sourceTree = "<group>"; };
+		2C5BAB605570794AC229EB91 /* BulbStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbStorage.swift; sourceTree = "<group>"; };
+		2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbModels.swift; sourceTree = "<group>"; };
+		404739858E4C5D0C3C4D6E5B /* WatchBulbListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBulbListView.swift; sourceTree = "<group>"; };
+		489D64DAB8F79D32AB163CB9 /* JibWatchWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JibWatchWidgetBundle.swift; sourceTree = "<group>"; };
+		507EEC29BDBE304B9746A7F6 /* Jib.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Jib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5158E36D3A1D88BF1EC676E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		524FCDE38F8E3056922BB3B2 /* BulbWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbWidget.swift; sourceTree = "<group>"; };
+		5463478A20E02F0E083F6D00 /* Jib.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jib.entitlements; sourceTree = "<group>"; };
+		587640689D8BAE49C5B905B1 /* JibWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JibWatch.entitlements; sourceTree = "<group>"; };
+		5C8FC80FEF6FEB27DA8EBEF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		669F6179E7794FBACECF14B2 /* WatchBulbDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBulbDetailView.swift; sourceTree = "<group>"; };
+		6E56EC33C8011D6013F9DC0C /* LiveSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveSlider.swift; sourceTree = "<group>"; };
+		7B078BD57EEFB59BF34F1DF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bulb.swift; sourceTree = "<group>"; };
+		7DF781518CAAB165766CA17C /* JibWatchWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JibWatchWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE83492A8C69D0953BEF65D /* BulbIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbIntents.swift; sourceTree = "<group>"; };
+		8059F6649E9EB9B91ED0466A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		858202ACA5A9E344F53E469B /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		965141A30CBB434EA56AB653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9752C7D9E8D32EDBC4E53EC7 /* BulbClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbClient.swift; sourceTree = "<group>"; };
+		97FAE39C68297DC4B70110B0 /* FrameCipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameCipherTests.swift; sourceTree = "<group>"; };
+		A82390F4FE6790DABA41447A /* BulbCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbCommands.swift; sourceTree = "<group>"; };
+		B44CF7125F92543F53F08AC2 /* BulbEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbEntity.swift; sourceTree = "<group>"; };
+		BC14338F9151814E6E160E0E /* LiveBulbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveBulbTests.swift; sourceTree = "<group>"; };
+		BC8242040FA4A15B70F67296 /* JibWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JibWatchApp.swift; sourceTree = "<group>"; };
+		BCCA287BF5DA4D6C0FD57C68 /* JibWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JibWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2ADDAF5C75C92017F933903 /* BulbStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbStore.swift; sourceTree = "<group>"; };
+		C3DA6C7DD6DCCA2D7113DD93 /* JibWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JibWidgetBundle.swift; sourceTree = "<group>"; };
+		CDA2BA0B5033741F84F95FF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D0B7EC996CF577090FAB12F9 /* JibWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = JibWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3D0AADBA630FDB6570D67EF /* PhoneSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSessionManager.swift; sourceTree = "<group>"; };
+		D74DA238C42EEEC4F6DE5DCE /* WatchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStore.swift; sourceTree = "<group>"; };
+		DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbDiscovery.swift; sourceTree = "<group>"; };
+		DE76C705D6C8A90B59F94D6F /* SelectBulbIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBulbIntent.swift; sourceTree = "<group>"; };
+		E37C547F66CBF08EAB8F6676 /* JibTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = JibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAE537B930289790AD2DDD9D /* JibWatchWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JibWatchWidget.entitlements; sourceTree = "<group>"; };
+		EFBDCEEBF882C717883370F0 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
+		F270F810827FC8A67A22FAFA /* BulbFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbFormView.swift; sourceTree = "<group>"; };
+		FEA5C6A4FA4975C842274E69 /* BulbParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbParsingTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1B7A787B16A0D287AB3291A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				018D5EF9C4CC47FC0646C75B /* BulbDetailView.swift */,
+				F270F810827FC8A67A22FAFA /* BulbFormView.swift */,
+				2B6B12A807BA7F944D7F9A65 /* BulbListView.swift */,
+				858202ACA5A9E344F53E469B /* DiscoveryView.swift */,
+				6E56EC33C8011D6013F9DC0C /* LiveSlider.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3D929F28247E8BBB35B324E5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9752C7D9E8D32EDBC4E53EC7 /* BulbClient.swift */,
+				A82390F4FE6790DABA41447A /* BulbCommands.swift */,
+				DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */,
+				2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */,
+				2BCDF9951B719B09323F04FC /* FrameCipher.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		40E56DDDD80DCA90BEB92CE6 /* Intents */ = {
+			isa = PBXGroup;
+			children = (
+				B44CF7125F92543F53F08AC2 /* BulbEntity.swift */,
+			);
+			path = Intents;
+			sourceTree = "<group>";
+		};
+		464268BDBFEC6940D0FE2117 /* Jib */ = {
+			isa = PBXGroup;
+			children = (
+				8059F6649E9EB9B91ED0466A /* Assets.xcassets */,
+				5158E36D3A1D88BF1EC676E1 /* Info.plist */,
+				5463478A20E02F0E083F6D00 /* Jib.entitlements */,
+				21CD5775F37DE854E053DAEB /* JibApp.swift */,
+				CC0FA6BCEAC123D5A8906425 /* Connectivity */,
+				5A0E733A5B4DC3C62BFD2787 /* Store */,
+				1B7A787B16A0D287AB3291A4 /* Views */,
+			);
+			path = Jib;
+			sourceTree = "<group>";
+		};
+		504C2F89D3B5DC92EB63502D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */,
+				1A0820A61CF54D450CADE5EA /* LightState+Display.swift */,
+				EFBDCEEBF882C717883370F0 /* Relay.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5A0E733A5B4DC3C62BFD2787 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C2ADDAF5C75C92017F933903 /* BulbStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		7078B292FB44F4A55721CAEA /* JibWatch */ = {
+			isa = PBXGroup;
+			children = (
+				7B078BD57EEFB59BF34F1DF4 /* Assets.xcassets */,
+				CDA2BA0B5033741F84F95FF3 /* Info.plist */,
+				587640689D8BAE49C5B905B1 /* JibWatch.entitlements */,
+				BC8242040FA4A15B70F67296 /* JibWatchApp.swift */,
+				D74DA238C42EEEC4F6DE5DCE /* WatchStore.swift */,
+				7BEB844470CECDB397A0DD40 /* Views */,
+			);
+			path = JibWatch;
+			sourceTree = "<group>";
+		};
+		756DFA5DD5A82FFE5DB64B88 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				2C5BAB605570794AC229EB91 /* BulbStorage.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		7BEB844470CECDB397A0DD40 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				669F6179E7794FBACECF14B2 /* WatchBulbDetailView.swift */,
+				404739858E4C5D0C3C4D6E5B /* WatchBulbListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F7C36B47E0C63A960BD9E3A /* JibWidget */ = {
+			isa = PBXGroup;
+			children = (
+				12D6D9DCC856AC0F0FAEC107 /* BulbControl.swift */,
+				7FE83492A8C69D0953BEF65D /* BulbIntents.swift */,
+				5C8FC80FEF6FEB27DA8EBEF1 /* Info.plist */,
+				049772B317F9A9445CB4C0A7 /* JibWidget.entitlements */,
+				C3DA6C7DD6DCCA2D7113DD93 /* JibWidgetBundle.swift */,
+			);
+			path = JibWidget;
+			sourceTree = "<group>";
+		};
+		A097B11B7991C1491554F66C = {
+			isa = PBXGroup;
+			children = (
+				464268BDBFEC6940D0FE2117 /* Jib */,
+				ABF5619F8D91173651C98407 /* JibTests */,
+				7078B292FB44F4A55721CAEA /* JibWatch */,
+				E55B0D36CB30B09256865F2C /* JibWatchWidget */,
+				8F7C36B47E0C63A960BD9E3A /* JibWidget */,
+				BB2C4B6160B5CF4EA01A5901 /* Shared */,
+				EFE50CAE5BEEAFA0E6C7E95F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABF5619F8D91173651C98407 /* JibTests */ = {
+			isa = PBXGroup;
+			children = (
+				FEA5C6A4FA4975C842274E69 /* BulbParsingTests.swift */,
+				97FAE39C68297DC4B70110B0 /* FrameCipherTests.swift */,
+				BC14338F9151814E6E160E0E /* LiveBulbTests.swift */,
+			);
+			path = JibTests;
+			sourceTree = "<group>";
+		};
+		BB2C4B6160B5CF4EA01A5901 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				40E56DDDD80DCA90BEB92CE6 /* Intents */,
+				504C2F89D3B5DC92EB63502D /* Models */,
+				3D929F28247E8BBB35B324E5 /* Protocol */,
+				756DFA5DD5A82FFE5DB64B88 /* Store */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CC0FA6BCEAC123D5A8906425 /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				D3D0AADBA630FDB6570D67EF /* PhoneSessionManager.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		E55B0D36CB30B09256865F2C /* JibWatchWidget */ = {
+			isa = PBXGroup;
+			children = (
+				524FCDE38F8E3056922BB3B2 /* BulbWidget.swift */,
+				965141A30CBB434EA56AB653 /* Info.plist */,
+				EAE537B930289790AD2DDD9D /* JibWatchWidget.entitlements */,
+				489D64DAB8F79D32AB163CB9 /* JibWatchWidgetBundle.swift */,
+				DE76C705D6C8A90B59F94D6F /* SelectBulbIntent.swift */,
+			);
+			path = JibWatchWidget;
+			sourceTree = "<group>";
+		};
+		EFE50CAE5BEEAFA0E6C7E95F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				507EEC29BDBE304B9746A7F6 /* Jib.app */,
+				E37C547F66CBF08EAB8F6676 /* JibTests.xctest */,
+				BCCA287BF5DA4D6C0FD57C68 /* JibWatch.app */,
+				7DF781518CAAB165766CA17C /* JibWatchWidget.appex */,
+				D0B7EC996CF577090FAB12F9 /* JibWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1579D82D53CB755C7D71DEEB /* JibWatchWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98BA4F31441D685A3103B244 /* Build configuration list for PBXNativeTarget "JibWatchWidget" */;
+			buildPhases = (
+				AF3E51BFBDAFF8BF2D78230C /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JibWatchWidget;
+			packageProductDependencies = (
+			);
+			productName = JibWatchWidget;
+			productReference = 7DF781518CAAB165766CA17C /* JibWatchWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		326FC8399AA02A47362411B4 /* Jib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D79FB80FE10D9982004580FA /* Build configuration list for PBXNativeTarget "Jib" */;
+			buildPhases = (
+				DD8DEAF3D1D4D21B91038E30 /* Sources */,
+				80C138CF1E25EB4111315067 /* Resources */,
+				CE4DF8C5FE05BAAC5A5B55B2 /* Embed Foundation Extensions */,
+				59F235FBBFC32481F81BAB9D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F36DA6E2D71EFF2EED3AFE4 /* PBXTargetDependency */,
+				93E22A3BF7C130B7095C0EB5 /* PBXTargetDependency */,
+			);
+			name = Jib;
+			packageProductDependencies = (
+			);
+			productName = Jib;
+			productReference = 507EEC29BDBE304B9746A7F6 /* Jib.app */;
+			productType = "com.apple.product-type.application";
+		};
+		80BDDC3D246E05A2B6D97736 /* JibWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE324B2C3C50C8449C91197F /* Build configuration list for PBXNativeTarget "JibWatch" */;
+			buildPhases = (
+				FCA48A56779BC6E00840324D /* Sources */,
+				AF9E7FA8A294DF92526DC9F5 /* Resources */,
+				B536F4FBFA39412D528068A2 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FA484D594FF7680822FC04F /* PBXTargetDependency */,
+			);
+			name = JibWatch;
+			packageProductDependencies = (
+			);
+			productName = JibWatch;
+			productReference = BCCA287BF5DA4D6C0FD57C68 /* JibWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A22A5617FAA5805E9BA5C809 /* JibWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD7EBE965011A4BA1F5A48D6 /* Build configuration list for PBXNativeTarget "JibWidget" */;
+			buildPhases = (
+				A97E6867FAC90039D7B2ACBC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JibWidget;
+			packageProductDependencies = (
+			);
+			productName = JibWidget;
+			productReference = D0B7EC996CF577090FAB12F9 /* JibWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EFB7F36A0AA61D6AF0114EB6 /* JibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33A81E99BC7C984CD65E6ADC /* Build configuration list for PBXNativeTarget "JibTests" */;
+			buildPhases = (
+				43E570E538198954ABDE0600 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F190B44B23A3C234609D1A5 /* PBXTargetDependency */,
+			);
+			name = JibTests;
+			packageProductDependencies = (
+			);
+			productName = JibTests;
+			productReference = E37C547F66CBF08EAB8F6676 /* JibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8A9A18F0D241A7CDAC3067F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					1579D82D53CB755C7D71DEEB = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					326FC8399AA02A47362411B4 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					80BDDC3D246E05A2B6D97736 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					A22A5617FAA5805E9BA5C809 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					EFB7F36A0AA61D6AF0114EB6 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 979CBB1B4DEEC853C145AB1F /* Build configuration list for PBXProject "Jib" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A097B11B7991C1491554F66C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = EFE50CAE5BEEAFA0E6C7E95F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				326FC8399AA02A47362411B4 /* Jib */,
+				A22A5617FAA5805E9BA5C809 /* JibWidget */,
+				80BDDC3D246E05A2B6D97736 /* JibWatch */,
+				1579D82D53CB755C7D71DEEB /* JibWatchWidget */,
+				EFB7F36A0AA61D6AF0114EB6 /* JibTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80C138CF1E25EB4111315067 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E13052DFF237FC472EE2B10 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9E7FA8A294DF92526DC9F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE1F5BEBDBBB1604C79E14BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43E570E538198954ABDE0600 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17584CB0AB77733512F3B912 /* BulbParsingTests.swift in Sources */,
+				3CE9C67B1412A113F35F4C9E /* FrameCipherTests.swift in Sources */,
+				E8C1AB63D7122727EE9C4897 /* LiveBulbTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A97E6867FAC90039D7B2ACBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51977464B11C882998EE0347 /* Bulb.swift in Sources */,
+				E0C5E7D55B378AC5AD946DBB /* BulbClient.swift in Sources */,
+				3457985CA937A84C3A36B587 /* BulbCommands.swift in Sources */,
+				5D92A18AF7939953E2830B0F /* BulbControl.swift in Sources */,
+				1E9269E6813955E252FF1F1C /* BulbDiscovery.swift in Sources */,
+				4E344D89680FC1EDFD7D2FC8 /* BulbEntity.swift in Sources */,
+				B9BDEF2B61065A359F02D523 /* BulbIntents.swift in Sources */,
+				0EEDA901C16A53AA342BD714 /* BulbModels.swift in Sources */,
+				2A4DA8BEBEF360989302C659 /* BulbStorage.swift in Sources */,
+				EA7C3E6BE54B74430C26A23D /* FrameCipher.swift in Sources */,
+				F9093828B72340DA771E2333 /* JibWidgetBundle.swift in Sources */,
+				BFF8089E4A6016ED21DEA811 /* LightState+Display.swift in Sources */,
+				D3A534E67B00534601219707 /* Relay.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF3E51BFBDAFF8BF2D78230C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B40FB7F58CFB114B46A7A0AA /* Bulb.swift in Sources */,
+				188BBABC0485A60EB4D01DC1 /* BulbClient.swift in Sources */,
+				B7AF0F2DF07F86193275DBF7 /* BulbCommands.swift in Sources */,
+				05AE0BC4D22676F20EC5AFB7 /* BulbDiscovery.swift in Sources */,
+				9A7091E214F250B45B6262C8 /* BulbEntity.swift in Sources */,
+				54A2FCC9A91687981EC5869A /* BulbModels.swift in Sources */,
+				278B012754E244F4124F12CA /* BulbStorage.swift in Sources */,
+				84FE4EA3405D80BD0D9AA25C /* BulbWidget.swift in Sources */,
+				5FC7379EE568460E5CB1C6E6 /* FrameCipher.swift in Sources */,
+				7B5964E6298F6236F6D482AA /* JibWatchWidgetBundle.swift in Sources */,
+				D7490DAB80BC43C8A8E07123 /* LightState+Display.swift in Sources */,
+				21B48E216D1D77751D36F206 /* Relay.swift in Sources */,
+				C44C81ED7200506A9112DD6D /* SelectBulbIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD8DEAF3D1D4D21B91038E30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				395D7F34AA0AF9C48E20AE11 /* Bulb.swift in Sources */,
+				A5362E5143996A958201AE51 /* BulbClient.swift in Sources */,
+				5F3D846A2867609B33DF9928 /* BulbCommands.swift in Sources */,
+				0EEDB83A2C95CAEA1B88E9CB /* BulbDetailView.swift in Sources */,
+				576D50DE6BCE8FA883BCE399 /* BulbDiscovery.swift in Sources */,
+				B618931565C984A16A6E46EC /* BulbEntity.swift in Sources */,
+				60D70115FA5DFBB7482C7CBD /* BulbFormView.swift in Sources */,
+				46A7A271D94FEC1668D48ADD /* BulbListView.swift in Sources */,
+				9A0A7DE0CEA7F0AC8B337C82 /* BulbModels.swift in Sources */,
+				7592A8F0C1E77254A7986109 /* BulbStorage.swift in Sources */,
+				D3EAF36F28082865878D88A8 /* BulbStore.swift in Sources */,
+				2A8235D4C3D63CA0870BBFA6 /* DiscoveryView.swift in Sources */,
+				884E0471C1833CE1621F4BD5 /* FrameCipher.swift in Sources */,
+				3DCEE931E291055E2922A5A7 /* JibApp.swift in Sources */,
+				0C510ED906D1B8DC70D2CAB7 /* LightState+Display.swift in Sources */,
+				6B4D197178BA52758EC69755 /* LiveSlider.swift in Sources */,
+				551904C4D3CE3B5AE42AB86E /* PhoneSessionManager.swift in Sources */,
+				B26F483C9B2F671ECC4BDB10 /* Relay.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCA48A56779BC6E00840324D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB8A1D9E44534F1BF518F3D6 /* Bulb.swift in Sources */,
+				CBA80DEA47AD30C8D84854E9 /* BulbClient.swift in Sources */,
+				A574215C573F367F1A00F90A /* BulbCommands.swift in Sources */,
+				65FF342492E1CF4329AA0D41 /* BulbDiscovery.swift in Sources */,
+				1718BF25CF47D3CE3967F587 /* BulbEntity.swift in Sources */,
+				720DC41936D49B3A915E8989 /* BulbModels.swift in Sources */,
+				2F50F475AA5D4206EA7CC6B4 /* BulbStorage.swift in Sources */,
+				D2BD3A0B3B708385A200277F /* FrameCipher.swift in Sources */,
+				C854D428BA0840A762C9E150 /* JibWatchApp.swift in Sources */,
+				D3AFB577F5A7655AC9FE7F62 /* LightState+Display.swift in Sources */,
+				841FB4C546220C6F41794FFA /* Relay.swift in Sources */,
+				52B550568DDF11F68AA8F872 /* WatchBulbDetailView.swift in Sources */,
+				0963D3AE2A64702C4339D60B /* WatchBulbListView.swift in Sources */,
+				D1B3A6007D5CB3FCD4D8D181 /* WatchStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3FA484D594FF7680822FC04F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1579D82D53CB755C7D71DEEB /* JibWatchWidget */;
+			targetProxy = F615832CDF0299D95AD27EF3 /* PBXContainerItemProxy */;
+		};
+		5F36DA6E2D71EFF2EED3AFE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80BDDC3D246E05A2B6D97736 /* JibWatch */;
+			targetProxy = 43D90A9BB8D8F5969260E995 /* PBXContainerItemProxy */;
+		};
+		6F190B44B23A3C234609D1A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 326FC8399AA02A47362411B4 /* Jib */;
+			targetProxy = F42BFCE821CF540431FE1AE3 /* PBXContainerItemProxy */;
+		};
+		93E22A3BF7C130B7095C0EB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A22A5617FAA5805E9BA5C809 /* JibWidget */;
+			targetProxy = 00B9CD4BD9246BB22E7C774A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		06987693BD1D271CD7D16195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.JibTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jib.app/Jib";
+			};
+			name = Debug;
+		};
+		2A5EDBF667827456868F4E34 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Jib/Jib.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Jib/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3A59F7CB61C06788ADDDA0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JibWidget/JibWidget.entitlements;
+				INFOPLIST_FILE = JibWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3DBC0BEDA1FDFCDC9C71B72D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JibWatch/JibWatch.entitlements;
+				INFOPLIST_FILE = JibWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		470E027DBE14A8651AB9D206 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = JibWatch/JibWatch.entitlements;
+				INFOPLIST_FILE = JibWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.watchkitapp;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		5266D758F6A8B1B1C7FEB51E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		92349F6B7F3E4C43F5C9C2EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JibWatchWidget/JibWatchWidget.entitlements;
+				INFOPLIST_FILE = JibWatchWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.watchkitapp.widget;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		A876EE864FD533E6FF5AEDEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		C20F07F75289CD49E2859E02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.JibTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jib.app/Jib";
+			};
+			name = Release;
+		};
+		C9C8C25B2B60D86B5ADAB28D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Jib/Jib.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Jib/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD46B01CEA86856EF276CC67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JibWatchWidget/JibWatchWidget.entitlements;
+				INFOPLIST_FILE = JibWatchWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.watchkitapp.widget;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		DE9491CF519322B4E18AC60E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JibWidget/JibWidget.entitlements;
+				INFOPLIST_FILE = JibWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33A81E99BC7C984CD65E6ADC /* Build configuration list for PBXNativeTarget "JibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06987693BD1D271CD7D16195 /* Debug */,
+				C20F07F75289CD49E2859E02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		979CBB1B4DEEC853C145AB1F /* Build configuration list for PBXProject "Jib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A876EE864FD533E6FF5AEDEF /* Debug */,
+				5266D758F6A8B1B1C7FEB51E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		98BA4F31441D685A3103B244 /* Build configuration list for PBXNativeTarget "JibWatchWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD46B01CEA86856EF276CC67 /* Debug */,
+				92349F6B7F3E4C43F5C9C2EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D79FB80FE10D9982004580FA /* Build configuration list for PBXNativeTarget "Jib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A5EDBF667827456868F4E34 /* Debug */,
+				C9C8C25B2B60D86B5ADAB28D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		DD7EBE965011A4BA1F5A48D6 /* Build configuration list for PBXNativeTarget "JibWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A59F7CB61C06788ADDDA0AB /* Debug */,
+				DE9491CF519322B4E18AC60E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		EE324B2C3C50C8449C91197F /* Build configuration list for PBXNativeTarget "JibWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DBC0BEDA1FDFCDC9C71B72D /* Debug */,
+				470E027DBE14A8651AB9D206 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8A9A18F0D241A7CDAC3067F /* Project object */;
+}
