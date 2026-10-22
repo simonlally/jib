@@ -51,17 +51,14 @@ devices, enable that group on the App IDs of all four targets (`Jib`, `JibWidget
 
 Requirements: Xcode 26 or later, iOS 17 / watchOS 10 deployment targets.
 
-The Xcode project is generated from `project.yml` with [XcodeGen](https://github.com/yonaskolb/XcodeGen):
+Open `Jib.xcodeproj` and run the `Jib` scheme. The project file is the source of truth; there is
+no generator step.
 
-```bash
-brew install xcodegen
-xcodegen generate
-open Jib.xcodeproj
-```
-
-To run on your own devices, set your team under *Signing & Capabilities* for both the `Jib`
-and `JibWatch` targets (or fill in `DEVELOPMENT_TEAM` in `project.yml` and regenerate).
-Running the `Jib` scheme on an iPhone with a paired watch installs both apps.
+To run on your own devices, set your team under *Signing & Capabilities* for all four app
+targets (`Jib`, `JibWidget`, `JibWatch`, `JibWatchWidget`). A free Apple ID (Personal Team)
+is enough: App Groups work without a paid membership, but the profile expires after a week,
+so re-run from Xcode when the app stops launching. Running the `Jib` scheme on an iPhone with
+a paired watch installs both apps.
 
 The first time the phone app touches a bulb, iOS asks for Local Network access. Allow it;
 if you decline, every request fails until you re‑enable it in Settings → Privacy → Local Network.
@@ -69,7 +66,7 @@ if you decline, every request fails until you re‑enable it in Settings → Pri
 ## Layout
 
 ```
-project.yml          XcodeGen spec (targets: Jib, JibWidget, JibWatch, JibWatchWidget, JibTests)
+Jib.xcodeproj        Xcode project (targets: Jib, JibWidget, JibWatch, JibWatchWidget, JibTests)
 Shared/Protocol/     Protocol code compiled into both apps
   FrameCipher.swift    autokey XOR framing
   BulbClient.swift     one request/reply over NWConnection, with connect + reply deadlines
