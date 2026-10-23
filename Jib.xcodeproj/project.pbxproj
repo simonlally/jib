@@ -73,6 +73,14 @@
 		EA7C3E6BE54B74430C26A23D /* FrameCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDF9951B719B09323F04FC /* FrameCipher.swift */; };
 		EB8A1D9E44534F1BF518F3D6 /* Bulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */; };
 		F9093828B72340DA771E2333 /* JibWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DA6C7DD6DCCA2D7113DD93 /* JibWidgetBundle.swift */; };
+		2EFA190FDC8A49AEB8832F65 /* ScheduleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */; };
+		A067DF69C6F36CBAF99EE18E /* ScheduleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */; };
+		C64377DA99194B9E90F046FF /* ScheduleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */; };
+		ED93D4E816DA9BB70AC937DF /* ScheduleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */; };
+		94A1EEDB421D7E78F9E876AE /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B6230DF98576878686A81D /* ScheduleModel.swift */; };
+		61C10E60668E9C5F2769E9C0 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C325E07A3F35AF1ABC25B1C /* ScheduleView.swift */; };
+		3936D0BBC55C872A214DF1C9 /* ScheduleRuleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837F1EED0A515334755FB6FD /* ScheduleRuleFormView.swift */; };
+		B8DF39DA29D17CE7CC7A606A /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F03F0C0AF8BC3195AFCB3 /* ScheduleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,7 +162,7 @@
 		2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbModels.swift; sourceTree = "<group>"; };
 		404739858E4C5D0C3C4D6E5B /* WatchBulbListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchBulbListView.swift; sourceTree = "<group>"; };
 		489D64DAB8F79D32AB163CB9 /* JibWatchWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JibWatchWidgetBundle.swift; sourceTree = "<group>"; };
-		507EEC29BDBE304B9746A7F6 /* Jib.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Jib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		507EEC29BDBE304B9746A7F6 /* Jib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5158E36D3A1D88BF1EC676E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		524FCDE38F8E3056922BB3B2 /* BulbWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbWidget.swift; sourceTree = "<group>"; };
 		5463478A20E02F0E083F6D00 /* Jib.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jib.entitlements; sourceTree = "<group>"; };
@@ -179,7 +187,7 @@
 		C2ADDAF5C75C92017F933903 /* BulbStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbStore.swift; sourceTree = "<group>"; };
 		C3DA6C7DD6DCCA2D7113DD93 /* JibWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JibWidgetBundle.swift; sourceTree = "<group>"; };
 		CDA2BA0B5033741F84F95FF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D0B7EC996CF577090FAB12F9 /* JibWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = JibWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0B7EC996CF577090FAB12F9 /* JibWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JibWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3D0AADBA630FDB6570D67EF /* PhoneSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSessionManager.swift; sourceTree = "<group>"; };
 		D74DA238C42EEEC4F6DE5DCE /* WatchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStore.swift; sourceTree = "<group>"; };
 		DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbDiscovery.swift; sourceTree = "<group>"; };
@@ -189,6 +197,11 @@
 		EFBDCEEBF882C717883370F0 /* Relay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Relay.swift; sourceTree = "<group>"; };
 		F270F810827FC8A67A22FAFA /* BulbFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbFormView.swift; sourceTree = "<group>"; };
 		FEA5C6A4FA4975C842274E69 /* BulbParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbParsingTests.swift; sourceTree = "<group>"; };
+		A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModels.swift; sourceTree = "<group>"; };
+		29B6230DF98576878686A81D /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
+		7C325E07A3F35AF1ABC25B1C /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		837F1EED0A515334755FB6FD /* ScheduleRuleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRuleFormView.swift; sourceTree = "<group>"; };
+		D02F03F0C0AF8BC3195AFCB3 /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -200,6 +213,8 @@
 				2B6B12A807BA7F944D7F9A65 /* BulbListView.swift */,
 				858202ACA5A9E344F53E469B /* DiscoveryView.swift */,
 				6E56EC33C8011D6013F9DC0C /* LiveSlider.swift */,
+				7C325E07A3F35AF1ABC25B1C /* ScheduleView.swift */,
+				837F1EED0A515334755FB6FD /* ScheduleRuleFormView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -212,6 +227,7 @@
 				DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */,
 				2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */,
 				2BCDF9951B719B09323F04FC /* FrameCipher.swift */,
+				A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -252,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				C2ADDAF5C75C92017F933903 /* BulbStore.swift */,
+				29B6230DF98576878686A81D /* ScheduleModel.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -317,6 +334,7 @@
 				FEA5C6A4FA4975C842274E69 /* BulbParsingTests.swift */,
 				97FAE39C68297DC4B70110B0 /* FrameCipherTests.swift */,
 				BC14338F9151814E6E160E0E /* LiveBulbTests.swift */,
+				D02F03F0C0AF8BC3195AFCB3 /* ScheduleTests.swift */,
 			);
 			path = JibTests;
 			sourceTree = "<group>";
@@ -471,19 +489,15 @@
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					1579D82D53CB755C7D71DEEB = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					326FC8399AA02A47362411B4 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					80BDDC3D246E05A2B6D97736 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					A22A5617FAA5805E9BA5C809 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					EFB7F36A0AA61D6AF0114EB6 = {
@@ -542,6 +556,7 @@
 				17584CB0AB77733512F3B912 /* BulbParsingTests.swift in Sources */,
 				3CE9C67B1412A113F35F4C9E /* FrameCipherTests.swift in Sources */,
 				E8C1AB63D7122727EE9C4897 /* LiveBulbTests.swift in Sources */,
+				B8DF39DA29D17CE7CC7A606A /* ScheduleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,6 +577,7 @@
 				F9093828B72340DA771E2333 /* JibWidgetBundle.swift in Sources */,
 				BFF8089E4A6016ED21DEA811 /* LightState+Display.swift in Sources */,
 				D3A534E67B00534601219707 /* Relay.swift in Sources */,
+				A067DF69C6F36CBAF99EE18E /* ScheduleModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +598,7 @@
 				D7490DAB80BC43C8A8E07123 /* LightState+Display.swift in Sources */,
 				21B48E216D1D77751D36F206 /* Relay.swift in Sources */,
 				C44C81ED7200506A9112DD6D /* SelectBulbIntent.swift in Sources */,
+				C64377DA99194B9E90F046FF /* ScheduleModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +624,10 @@
 				6B4D197178BA52758EC69755 /* LiveSlider.swift in Sources */,
 				551904C4D3CE3B5AE42AB86E /* PhoneSessionManager.swift in Sources */,
 				B26F483C9B2F671ECC4BDB10 /* Relay.swift in Sources */,
+				2EFA190FDC8A49AEB8832F65 /* ScheduleModels.swift in Sources */,
+				94A1EEDB421D7E78F9E876AE /* ScheduleModel.swift in Sources */,
+				61C10E60668E9C5F2769E9C0 /* ScheduleView.swift in Sources */,
+				3936D0BBC55C872A214DF1C9 /* ScheduleRuleFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +649,7 @@
 				52B550568DDF11F68AA8F872 /* WatchBulbDetailView.swift in Sources */,
 				0963D3AE2A64702C4339D60B /* WatchBulbListView.swift in Sources */,
 				D1B3A6007D5CB3FCD4D8D181 /* WatchStore.swift in Sources */,
+				ED93D4E816DA9BB70AC937DF /* ScheduleModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,6 +702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Jib/Jib.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = Jib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -696,6 +719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JibWidget/JibWidget.entitlements;
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = JibWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -715,6 +739,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JibWatch/JibWatch.entitlements;
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = JibWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.watchkitapp;
 				SDKROOT = watchos;
@@ -728,6 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JibWatch/JibWatch.entitlements;
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = JibWatch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.simonlally.Jib.watchkitapp;
 				SDKROOT = watchos;
@@ -805,6 +831,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JibWatchWidget/JibWatchWidget.entitlements;
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = JibWatchWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -913,6 +940,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Jib/Jib.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = Jib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -929,6 +957,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JibWatchWidget/JibWatchWidget.entitlements;
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = JibWatchWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -946,6 +975,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = JibWidget/JibWidget.entitlements;
+				DEVELOPMENT_TEAM = 5G5J843SB4;
 				INFOPLIST_FILE = JibWidget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (

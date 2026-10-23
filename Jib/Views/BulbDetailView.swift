@@ -94,6 +94,14 @@ struct BulbDetailView: View {
                 }
             }
 
+            Section {
+                NavigationLink {
+                    ScheduleView(bulb: bulb)
+                } label: {
+                    Label("Schedule", systemImage: "clock")
+                }
+            }
+
             if let error = store.errors[bulb.id] {
                 Section {
                     Label(error, systemImage: "exclamationmark.triangle.fill")

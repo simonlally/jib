@@ -14,6 +14,9 @@ with a `light_state` should work.
 - Toggle power from the list; open a bulb for brightness, white temperature, hue/saturation,
   and the four presets stored on the bulb.
 - Rename, re‑address, reorder and remove bulbs. The list is saved on the phone.
+- Schedule a bulb to turn on or off at a time of day, or relative to sunrise or sunset, on
+  chosen days. Rules are stored on the bulb and fire from its own clock, so they keep working
+  with the phone away. The screen also shows the bulb's clock and fixes it from the phone.
 
 **Apple Watch**
 - The bulb list syncs from the phone automatically.
@@ -90,8 +93,10 @@ Tools/mockbulb.rb    Fake bulb on port 9999 for testing writes without touching 
 xcodebuild test -project Jib.xcodeproj -scheme Jib -destination 'platform=iOS Simulator,name=iPhone 17'
 ```
 
-To exercise the write path (toggles, sliders, the control) without switching real lamps, run the
-fake bulb and add `127.0.0.1` in the simulator (or this Mac's LAN address on a device):
+To exercise the write path (toggles, sliders, the control, schedules) without switching real
+lamps, run the fake bulb and add `127.0.0.1` in the simulator (or this Mac's LAN address on a
+device). It keeps a rule list and fires fixed-time rules on its own clock, so a rule set a minute
+ahead visibly switches it:
 
 ```bash
 ruby Tools/mockbulb.rb
@@ -114,3 +119,11 @@ TEST_RUNNER_TEST_BULB_HOST=192.168.1.23 xcodebuild test -project Jib.xcodeproj -
   client bounds the TCP handshake tightly (1.5 s in sweeps) but allows a longer reply window.
 - The bulbs' native discovery is a UDP broadcast, which iOS reserves for apps with the multicast
   entitlement. Jib sweeps the /24 over TCP instead.
+- Schedules live in the `smartlife.iot.common.schedule` service: `get_rules`, `add_rule`,
+  `edit_rule`, `delete_rule`, `set_overall_enable` and `get_next_action`. A rule has `wday`
+  (seven flags, Sunday first), `stime_opt` (0 fixed time, 1 sunrise, 2 sunset), `smin` (minutes
+  after midnight), `soffset` (minutes around sunrise/sunset), and on bulbs `sact: 2` with the
+  real on/off and colour inside `s_light`.
+- The bulb's clock is `smartlife.iot.common.timesetting`: `get_time`, `set_time` (year, month,
+  mday, hour, min, sec, in the bulb's local time) and `get_timezone` (an index into the maker's
+  own table, which Jib leaves alone).
