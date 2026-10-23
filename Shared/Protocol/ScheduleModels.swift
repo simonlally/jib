@@ -27,8 +27,33 @@ enum ScheduleTrigger: Codable, Hashable, Sendable {
     }
 
     static func timeLabel(minutes: Int, calendar: Calendar = .current) -> String {
-        let date = calendar.date(bySettingHour: minutes / 60, minute: minutes % 60, second: 0, of: .now) ?? .now
-        return date.formatted(date: .omitted, time: .shortened)
+        date(forMinutes: minutes, calendar: calendar)
+            .formatted(Date.FormatStyle(date: .omitted, time: .shortened, locale: calendar.locale ?? .current,
+                                        calendar: calendar, timeZone: calendar.timeZone))
+    }
+
+    /// A moment carrying just an hour and minute, on a reference day whose clock has no gaps. Building
+    /// times on today's date goes wrong on the spring-forward day, when 02:30 doesn't exist and
+    /// would silently become 03:00.
+    static func date(forMinutes minutes: Int, calendar: Calendar = .current) -> Date {
+        let hour = (minutes / 60) % 24
+        let minute = minutes % 60
+        let anchors = [DateComponents(year: 2001, month: 1, day: 1), DateComponents(year: 2001, month: 7, day: 1)]
+        for var anchor in anchors {
+            anchor.hour = hour
+            anchor.minute = minute
+            if let date = calendar.date(from: anchor),
+               calendar.component(.hour, from: date) == hour, calendar.component(.minute, from: date) == minute {
+                return date
+            }
+        }
+        return calendar.date(from: DateComponents(year: 2001, month: 1, day: 1, hour: hour, minute: minute)) ?? .now
+    }
+
+    /// Minutes after midnight of a moment's wall-clock time.
+    static func minutes(from date: Date, calendar: Calendar = .current) -> Int {
+        let parts = calendar.dateComponents([.hour, .minute], from: date)
+        return (parts.hour ?? 0) * 60 + (parts.minute ?? 0)
     }
 
     static func sunLabel(_ event: String, offset: Int) -> String {
@@ -239,6 +264,15 @@ struct BulbClock: Hashable, Sendable {
     /// Seconds the bulb's clock is ahead of `reference` (negative when behind).
     func drift(from reference: Date, calendar: Calendar = .current) -> TimeInterval? {
         date(in: calendar).map { $0.timeIntervalSince(reference) }
+    }
+
+    /// Whether a drift is a whole number of half hours, give or take two minutes. A clock that has
+    /// wandered is off by odd amounts; a round difference points at the bulb's time-zone setting.
+    static func looksLikeZoneOffset(_ drift: TimeInterval) -> Bool {
+        let seconds = abs(drift)
+        guard seconds >= 1800 - 120 else { return false }
+        let remainder = seconds.truncatingRemainder(dividingBy: 1800)
+        return min(remainder, 1800 - remainder) <= 120
     }
 
     /// `set_time` parameters for a moment, in the phone's time zone.

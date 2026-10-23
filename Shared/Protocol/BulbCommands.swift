@@ -100,7 +100,9 @@ extension BulbCommands {
 
     /// Pulls one command's reply out of a (possibly multi-service) response and checks its error code.
     static func section(_ reply: [String: Any], _ service: String, _ command: String) throws -> [String: Any] {
-        guard let module = reply[service] as? [String: Any], let result = module[command] as? [String: Any] else {
+        guard let module = reply[service] as? [String: Any] else { throw BulbError.badResponse("missing \(service)") }
+        guard let result = module[command] as? [String: Any] else {
+            try checkError(module)   // a bulb without the service answers with the error at this level
             throw BulbError.badResponse("missing \(command)")
         }
         try checkError(result)

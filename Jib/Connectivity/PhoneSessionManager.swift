@@ -12,10 +12,10 @@ final class PhoneSessionManager: NSObject, WCSessionDelegate {
     func activate(store: BulbStore) {
         self.store = store
         store.onBulbsChanged = { [weak self] bulbs in self?.push(bulbs: bulbs, states: BulbStorage.loadStates()) }
-        store.onStateChanged = { [weak self] states, powerChanged in
+        store.onStateChanged = { [weak self] states, wakeComplication in
             guard let self, let bulbs = self.store?.bulbs else { return }
             self.push(bulbs: bulbs, states: states)
-            if powerChanged { self.pushComplicationUpdate(states) }
+            if wakeComplication { self.pushComplicationUpdate(states) }
         }
         guard WCSession.isSupported() else { return }
         let session = WCSession.default

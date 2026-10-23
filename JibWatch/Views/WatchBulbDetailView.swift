@@ -6,7 +6,7 @@ struct WatchBulbDetailView: View {
     let bulbID: UUID
 
     @State private var brightness: Double = 50
-    @State private var pending: Task<Void, Never>?
+    @State private var queue: CommitQueue<Int>?
 
     var body: some View {
         if let bulb = store.bulb(id: bulbID) {
@@ -64,7 +64,7 @@ struct WatchBulbDetailView: View {
                     .digitalCrownRotation($brightness, from: 1, through: 100, by: 1,
                                           sensitivity: .medium, isContinuous: false, isHapticFeedbackEnabled: true)
                     .onChange(of: brightness) { _, newValue in
-                        schedule(Int(newValue), for: bulb)
+                        send(Int(newValue), for: bulb)
                     }
                 }
 
@@ -98,20 +98,18 @@ struct WatchBulbDetailView: View {
         .navigationTitle(bulb.name)
         .onAppear { brightness = Double(state?.brightness ?? 50) }
         .onChange(of: state?.brightness) { _, newValue in
-            if let newValue, pending == nil { brightness = Double(newValue) }
+            if let newValue, !(queue?.isBusy ?? false) { brightness = Double(newValue) }
         }
         .task { await store.perform(.status, on: bulb) }
     }
 
-    /// Crown rotation fires continuously; send the latest value once it settles.
-    private func schedule(_ value: Int, for bulb: Bulb) {
+    /// Crown rotation fires continuously. Values go out one at a time through the phone; a request in
+    /// flight is never cancelled, and the newest value follows once it completes.
+    private func send(_ value: Int, for bulb: Bulb) {
         guard value != store.infos[bulb.id]?.state.brightness else { return }
-        pending?.cancel()
-        pending = Task {
-            try? await Task.sleep(for: .milliseconds(250))
-            if Task.isCancelled { return }
-            await store.perform(.brightness(value), on: bulb)
-            pending = nil
+        if queue == nil {
+            queue = CommitQueue { value in await store.perform(.brightness(value), on: bulb) }
         }
+        queue?.send(value)
     }
 }

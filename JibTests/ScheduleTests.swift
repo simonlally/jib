@@ -179,6 +179,43 @@ struct ScheduleTests {
         }
     }
 
+    /// A bulb without a service answers with the error one level up, where the command would be.
+    @Test func aMissingServiceReportsTheBulbsReason() {
+        let reply: [String: Any] = [BulbCommands.scheduleService: ["err_code": -1, "err_msg": "module not support"]]
+        let error = #expect(throws: BulbError.self) {
+            _ = try BulbCommands.section(reply, BulbCommands.scheduleService, "get_rules")
+        }
+        #expect(error?.localizedDescription.contains("module not support") == true)
+    }
+
+    /// Times are built on a reference day, not today: on the spring-forward day 02:30 doesn't exist,
+    /// and building it on that date silently turns a 02:30 rule into 03:00.
+    @Test func ruleTimesSurviveTheSpringForwardDay() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = try #require(TimeZone(identifier: "America/New_York"))
+        calendar.locale = Locale(identifier: "en_US")
+        let springForwardNoon = try #require(calendar.date(from: DateComponents(year: 2026, month: 3, day: 8, hour: 12)))
+        let naive = try #require(calendar.date(bySettingHour: 2, minute: 30, second: 0, of: springForwardNoon))
+        #expect(calendar.component(.hour, from: naive) == 3, "the pitfall this guards against")
+
+        let date = ScheduleTrigger.date(forMinutes: 150, calendar: calendar)
+        #expect(calendar.component(.hour, from: date) == 2)
+        #expect(calendar.component(.minute, from: date) == 30)
+        #expect(ScheduleTrigger.minutes(from: date, calendar: calendar) == 150)
+        #expect(ScheduleTrigger.timeLabel(minutes: 150, calendar: calendar).contains("2:30"))
+        #expect(ScheduleTrigger.minutes(from: ScheduleTrigger.date(forMinutes: 23 * 60 + 59, calendar: calendar), calendar: calendar) == 1439)
+    }
+
+    @Test func aRoundDriftLooksLikeATimeZoneDifference() {
+        #expect(BulbClock.looksLikeZoneOffset(3600))
+        #expect(BulbClock.looksLikeZoneOffset(-3600 + 50))
+        #expect(BulbClock.looksLikeZoneOffset(1800))
+        #expect(BulbClock.looksLikeZoneOffset(5 * 3600 + 110))
+        #expect(!BulbClock.looksLikeZoneOffset(974))
+        #expect(!BulbClock.looksLikeZoneOffset(200))
+        #expect(!BulbClock.looksLikeZoneOffset(2400))
+    }
+
     @Test func newRuleTemplateUsesNextHourAndLastLight() throws {
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(identifier: "UTC")!

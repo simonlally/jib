@@ -11,6 +11,12 @@ private func sampleInfo(on: Bool, brightness: Int = 50) throws -> BulbInfo {
                                   "is_variable_color_temp": 1, "light_state": light, "err_code": 0])
 }
 
+/// Collects the actions a runner was asked to perform.
+private actor Sent {
+    private(set) var actions: [BulbAction] = []
+    func record(_ action: BulbAction) { actions.append(action) }
+}
+
 private func freshDefaults() -> UserDefaults {
     let name = "BulbStoreTests-\(UUID().uuidString)"
     let defaults = UserDefaults(suiteName: name)!
@@ -86,6 +92,64 @@ struct BulbStoreTests {
         #expect(store.errors[bulb.id]?.contains("Timed out") == true)
         await store.refresh(bulb)
         #expect(store.errors[bulb.id] == nil)
+    }
+
+    @Test func powerTogglesAreOptimisticSoTwoQuickTapsFlipBack() async throws {
+        let gate = Gate()
+        let sent = Sent()
+        let store = makeStore { action, _ in
+            guard case .power(let on) = action else { return .info(try sampleInfo(on: false)) }
+            await sent.record(action)
+            await gate.wait()
+            return .state(LightState(isOn: on, brightness: 50, colorTemp: 2700, hue: 0, saturation: 0))
+        }
+        await store.refresh(bulb)
+        #expect(store.infos[bulb.id]?.state.isOn == false)
+
+        let first = Task { await store.togglePower(bulb) }
+        await until { await gate.waiting == 1 }
+        #expect(store.infos[bulb.id]?.state.isOn == true, "shown before the bulb answers")
+
+        let second = Task { await store.togglePower(bulb) }
+        await until { await gate.waiting == 2 }
+        #expect(await sent.actions == [.power(true), .power(false)])
+        #expect(store.infos[bulb.id]?.state.isOn == false)
+
+        await gate.open()
+        await gate.open()
+        _ = await first.value
+        _ = await second.value
+        #expect(store.infos[bulb.id]?.state.isOn == false)
+        #expect(store.errors[bulb.id] == nil)
+    }
+
+    @Test func aRefusedPowerFlipRollsBack() async throws {
+        let store = makeStore { action, _ in
+            guard case .power = action else { return .info(try sampleInfo(on: false)) }
+            throw BulbError.timeout(lastKnown: "sending")
+        }
+        await store.refresh(bulb)
+        #expect(await store.perform(.power(true), on: bulb) == false)
+        #expect(store.infos[bulb.id]?.state.isOn == false)
+        #expect(store.errors[bulb.id] != nil)
+    }
+
+    @Test func aFlipRelayedFromTheWatchDoesNotWakeTheComplication() async throws {
+        let store = makeStore { action, _ in
+            guard case .power(let on) = action else { return .info(try sampleInfo(on: false)) }
+            return .state(LightState(isOn: on, brightness: 50, colorTemp: 2700, hue: 0, saturation: 0))
+        }
+        var wakes: [Bool] = []
+        store.onStateChanged = { _, wakeComplication in wakes.append(wakeComplication) }
+        await store.refresh(bulb)
+        #expect(wakes == [true], "first sighting of the bulb")
+
+        let relayed = await store.handleRelay(RelayRequest(host: bulb.host, action: .power(true)))
+        #expect(relayed.error == nil)
+        #expect(wakes == [true, false], "the watch has the reply already")
+
+        await store.perform(.power(false), on: bulb)
+        #expect(wakes == [true, false, true], "a flip from the phone must reach the complication")
     }
 
     @Test func aChangeTheExtensionAlreadyStoredStillReachesTheWatch() async throws {

@@ -177,7 +177,11 @@ final class WatchStore {
             return nil
         } catch {
             log.error("\(bulb.name, privacy: .public): \(error.localizedDescription, privacy: .public)")
-            errors[bulb.id] = error.localizedDescription
+            // The list's footer already says when the phone is out of reach; a per-bulb error would
+            // only paint every row red while the link comes up. A superseded request is old news.
+            if !Self.isReachabilityError(error), latestOperation[bulb.id] == ticket {
+                errors[bulb.id] = error.localizedDescription
+            }
             return error
         }
     }

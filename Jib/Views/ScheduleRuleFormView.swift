@@ -32,7 +32,7 @@ struct ScheduleRuleFormView: View {
         switch rule.trigger {
         case .time(let minutes):
             _kind = State(initialValue: .time)
-            _time = State(initialValue: calendar.date(bySettingHour: minutes / 60, minute: minutes % 60, second: 0, of: .now) ?? .now)
+            _time = State(initialValue: ScheduleTrigger.date(forMinutes: minutes, calendar: calendar))
             _offset = State(initialValue: 0)
         case .sunrise(let offset):
             _kind = State(initialValue: .sunrise)
@@ -75,8 +75,7 @@ struct ScheduleRuleFormView: View {
         var rule = original
         switch kind {
         case .time:
-            let parts = Calendar.current.dateComponents([.hour, .minute], from: time)
-            rule.trigger = .time(minutes: (parts.hour ?? 0) * 60 + (parts.minute ?? 0))
+            rule.trigger = .time(minutes: ScheduleTrigger.minutes(from: time))
         case .sunrise: rule.trigger = .sunrise(offset: offset)
         case .sunset: rule.trigger = .sunset(offset: offset)
         }

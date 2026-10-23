@@ -68,7 +68,8 @@ enum BulbDiscovery {
         return parts.count == 3 && parts.allSatisfy { Int($0).map { (0...255).contains($0) } ?? false }
     }
 
-    /// First three octets of this device's Wi‑Fi address, e.g. "192.168.1".
+    /// First three octets of this device's Wi‑Fi address, e.g. "192.168.1". `nil` when the device
+    /// isn't on Wi‑Fi: a sweep over a cellular or VPN subnet would never find a bulb.
     static func localSubnetPrefix() -> String? {
         guard let address = localIPv4Address() else { return nil }
         let parts = address.split(separator: ".")
@@ -94,13 +95,17 @@ enum BulbDiscovery {
             guard !address.hasPrefix("169.254.") else { continue }
             candidates.append((String(cString: entry.ifa_name), address))
         }
-        return candidates.min { rank($0.interface) < rank($1.interface) }?.address
+        return preferredAddress(among: candidates)
+    }
+
+    /// The Wi‑Fi address among a device's interfaces: `en0` first, then any other `en` interface.
+    /// Cellular (`pdp_ip*`), VPN (`utun*`) and bridge interfaces are never swept.
+    static func preferredAddress(among candidates: [(interface: String, address: String)]) -> String? {
+        candidates.filter { $0.interface.hasPrefix("en") }
+            .min { rank($0.interface) < rank($1.interface) }?.address
     }
 
     private static func rank(_ interface: String) -> Int {
-        if interface == "en0" { return 0 }          // Wi‑Fi on iPhone and most Macs
-        if interface.hasPrefix("en") { return 1 }
-        if interface.hasPrefix("bridge") || interface.hasPrefix("utun") { return 3 }
-        return 2
+        interface == "en0" ? 0 : 1          // en0 is Wi‑Fi on iPhone and most Macs
     }
 }

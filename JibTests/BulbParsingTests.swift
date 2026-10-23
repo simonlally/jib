@@ -81,6 +81,14 @@ struct BulbParsingTests {
         #expect(try JSONDecoder().decode([BulbAction].self, from: data) == actions)
     }
 
+    @Test func onlyWiFiInterfacesAreSwept() {
+        #expect(BulbDiscovery.preferredAddress(among: [("pdp_ip0", "10.1.2.3")]) == nil)
+        #expect(BulbDiscovery.preferredAddress(among: [("utun3", "10.8.0.2"), ("bridge100", "192.168.64.1")]) == nil)
+        #expect(BulbDiscovery.preferredAddress(among: [("utun3", "10.8.0.2"), ("en1", "192.168.5.9"), ("en0", "192.168.1.4")]) == "192.168.1.4")
+        #expect(BulbDiscovery.preferredAddress(among: [("pdp_ip0", "10.1.2.3"), ("en1", "192.168.5.9")]) == "192.168.5.9")
+        #expect(BulbDiscovery.preferredAddress(among: []) == nil)
+    }
+
     @Test func subnetPrefixValidation() {
         #expect(BulbDiscovery.isValidPrefix("192.168.1"))
         #expect(!BulbDiscovery.isValidPrefix("192.168"))

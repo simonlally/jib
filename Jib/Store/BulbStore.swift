@@ -17,8 +17,9 @@ final class BulbStore {
     /// Fires whenever the saved list changes; the watch mirror hooks in here.
     var onBulbsChanged: (([Bulb]) -> Void)?
     /// Fires whenever a bulb's state differs from what this phone last handed to the watch.
-    /// `powerChanged` tells an on/off flip apart from a brightness or colour step.
-    var onStateChanged: (@MainActor (_ states: [UUID: LightState], _ powerChanged: Bool) -> Void)?
+    /// `wakeComplication` is set for an on/off flip the watch doesn't already know about: a flip
+    /// the watch relayed itself reaches its complication through the reply.
+    var onStateChanged: (@MainActor (_ states: [UUID: LightState], _ wakeComplication: Bool) -> Void)?
 
     /// Where the phone remembers what it last handed to the watch. Kept apart from the shared
     /// last-seen states, which the Control Center extension writes too: a change the extension saw
@@ -130,12 +131,21 @@ final class BulbStore {
         latestOperation[bulb.id] = ticket
         busy.insert(bulb.id)
         defer { if latestOperation[bulb.id] == ticket { busy.remove(bulb.id) } }
+        // Show a power flip at once, so a second tap before the reply flips it back rather than again.
+        var rollback: LightState?
+        if case .power(let on) = action, var state = infos[bulb.id]?.state, state.isOn != on {
+            rollback = state
+            state.isOn = on
+            infos[bulb.id]?.state = state
+        }
         do {
             let result = try await run(action, bulb.host)
             apply(result, to: bulb, ticket: ticket)
             return true
         } catch {
-            if error is CancellationError || Task.isCancelled || latestOperation[bulb.id] != ticket { return false }
+            let superseded = latestOperation[bulb.id] != ticket
+            if !superseded, let rollback { infos[bulb.id]?.state = rollback }
+            if error is CancellationError || Task.isCancelled || superseded { return false }
             errors[bulb.id] = error.localizedDescription
             return false
         }
@@ -145,7 +155,7 @@ final class BulbStore {
     func handleRelay(_ request: RelayRequest) async -> RelayResponse {
         do {
             let result = try await run(request.action, request.host)
-            if let bulb = bulb(host: request.host) { apply(result, to: bulb, ticket: nil) }
+            if let bulb = bulb(host: request.host) { apply(result, to: bulb, ticket: nil, viaWatch: true) }
             return RelayResponse(result: result, error: nil)
         } catch {
             return RelayResponse(result: nil, error: error.localizedDescription)
@@ -154,7 +164,7 @@ final class BulbStore {
 
     /// Applies a result unless a newer operation on the same bulb has since started
     /// (slider drags fire several commands in flight at once).
-    private func apply(_ result: ActionResult, to bulb: Bulb, ticket: Int?) {
+    private func apply(_ result: ActionResult, to bulb: Bulb, ticket: Int?, viaWatch: Bool = false) {
         if let ticket, let latest = latestOperation[bulb.id], ticket < latest { return }
         errors[bulb.id] = nil
         let state: LightState
@@ -170,13 +180,15 @@ final class BulbStore {
                 Task { await refresh(bulb) }
             }
         }
-        share(state, for: bulb)
+        share(state, for: bulb, viaWatch: viaWatch)
     }
 
     /// Records the state where the control and the watch can see it. The control is reloaded when
     /// the shared store changed hands; the watch is told whenever the state differs from what this
-    /// phone last sent it, even if the Control Center extension already wrote it to the store.
-    private func share(_ state: LightState, for bulb: Bulb) {
+    /// phone last sent it, even if the Control Center extension already wrote it to the store. The
+    /// complication is woken only for a power flip the watch didn't relay itself: those transfers
+    /// are budgeted (about 50 a day), and the watch already has the reply.
+    private func share(_ state: LightState, for bulb: Bulb, viaWatch: Bool) {
         let stored = BulbStorage.state(for: bulb.id, in: defaults)
         if BulbStorage.setState(state, for: bulb.id, in: defaults), stored?.isOn != state.isOn {
             reloadControls()
@@ -185,7 +197,7 @@ final class BulbStore {
         guard previous != state else { return }
         lastShared[bulb.id] = state
         persistLastShared()
-        onStateChanged?(BulbStorage.loadStates(from: defaults), previous?.isOn != state.isOn)
+        onStateChanged?(BulbStorage.loadStates(from: defaults), previous?.isOn != state.isOn && !viaWatch)
     }
 
     /// Control Center keeps each control's last value; ask it to read the bulb again.

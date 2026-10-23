@@ -5,11 +5,16 @@ struct DiscoveryView: View {
     @Environment(BulbStore.self) private var store
     @Environment(\.dismiss) private var dismiss
 
-    @State private var prefix = BulbDiscovery.localSubnetPrefix() ?? ""
+    private let wifiPrefix = BulbDiscovery.localSubnetPrefix()
+    @State private var prefix: String
     @State private var found: [DiscoveredBulb] = []
     @State private var scanned = 0
     @State private var scanning = false
     @State private var scanTask: Task<Void, Never>?
+
+    init() {
+        _prefix = State(initialValue: BulbDiscovery.localSubnetPrefix() ?? "")
+    }
 
     private var prefixIsValid: Bool { BulbDiscovery.isValidPrefix(prefix) }
 
@@ -37,7 +42,11 @@ struct DiscoveryView: View {
                 } header: {
                     Text("Subnet")
                 } footer: {
-                    Text("Jib probes every address on this subnet for a compatible bulb. If iOS asks for Local Network access, allow it and scan again.")
+                    if wifiPrefix == nil {
+                        Text("This iPhone isn’t on Wi‑Fi. Join the bulbs’ network to scan, or type the first three numbers of its address.")
+                    } else {
+                        Text("Jib probes every address on this subnet for a compatible bulb. If iOS asks for Local Network access, allow it and scan again.")
+                    }
                 }
 
                 Section("Found") {
@@ -80,7 +89,7 @@ struct DiscoveryView: View {
                     Button("Done") { dismiss() }
                 }
             }
-            .onAppear { if prefixIsValid { start() } }
+            .onAppear { if wifiPrefix != nil, prefixIsValid { start() } }
             .onDisappear { stop() }
         }
     }

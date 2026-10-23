@@ -138,7 +138,11 @@ struct ScheduleView: View {
     private func driftLabel(_ drift: TimeInterval) -> String {
         let minutes = Int((abs(drift) / 60).rounded())
         let amount = minutes < 1 ? "\(Int(abs(drift))) s" : "\(minutes) min"
-        return "The bulb’s clock is \(amount) \(drift > 0 ? "ahead of" : "behind") your iPhone, so schedules will fire at the wrong time."
+        let lead = "The bulb’s clock is \(amount) \(drift > 0 ? "ahead of" : "behind") your iPhone"
+        if BulbClock.looksLikeZoneOffset(drift) {
+            return "\(lead). A round difference like this usually means the time zone its original app set doesn’t match yours, so setting the time here may not stick."
+        }
+        return "\(lead), so schedules will fire at the wrong time."
     }
 
     /// A fresh rule: the next whole hour, every day, turning the bulb on as it last looked.
