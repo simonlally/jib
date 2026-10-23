@@ -81,6 +81,13 @@
 		61C10E60668E9C5F2769E9C0 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C325E07A3F35AF1ABC25B1C /* ScheduleView.swift */; };
 		3936D0BBC55C872A214DF1C9 /* ScheduleRuleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837F1EED0A515334755FB6FD /* ScheduleRuleFormView.swift */; };
 		B8DF39DA29D17CE7CC7A606A /* ScheduleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02F03F0C0AF8BC3195AFCB3 /* ScheduleTests.swift */; };
+		8FC58689A4E65A5FEA8E9B60 /* CommitQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8D978895BD49546E50F91B /* CommitQueue.swift */; };
+		BBB43029FDE0D763EAAA9493 /* CommitQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8D978895BD49546E50F91B /* CommitQueue.swift */; };
+		021CD59430BE991EF8695C19 /* CommitQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8D978895BD49546E50F91B /* CommitQueue.swift */; };
+		29E1A850205F22FC208826E9 /* CommitQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8D978895BD49546E50F91B /* CommitQueue.swift */; };
+		93A379D5B242D8BA7F8935F2 /* CommitQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A55EEB922DAD5AB6424919 /* CommitQueueTests.swift */; };
+		1DFCC25DB569360A77747BCF /* BulbStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D9731BB88A26EDC4B2591D /* BulbStoreTests.swift */; };
+		A9ECDA38DC42495525BBC223 /* ScheduleModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6743BE39F7E16F062DB937C /* ScheduleModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +209,10 @@
 		7C325E07A3F35AF1ABC25B1C /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		837F1EED0A515334755FB6FD /* ScheduleRuleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRuleFormView.swift; sourceTree = "<group>"; };
 		D02F03F0C0AF8BC3195AFCB3 /* ScheduleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTests.swift; sourceTree = "<group>"; };
+		1E8D978895BD49546E50F91B /* CommitQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitQueue.swift; sourceTree = "<group>"; };
+		80A55EEB922DAD5AB6424919 /* CommitQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitQueueTests.swift; sourceTree = "<group>"; };
+		83D9731BB88A26EDC4B2591D /* BulbStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbStoreTests.swift; sourceTree = "<group>"; };
+		F6743BE39F7E16F062DB937C /* ScheduleModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -260,6 +271,7 @@
 				7B0E0B2D62EFFFD9FD377661 /* Bulb.swift */,
 				1A0820A61CF54D450CADE5EA /* LightState+Display.swift */,
 				EFBDCEEBF882C717883370F0 /* Relay.swift */,
+				1E8D978895BD49546E50F91B /* CommitQueue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +347,9 @@
 				97FAE39C68297DC4B70110B0 /* FrameCipherTests.swift */,
 				BC14338F9151814E6E160E0E /* LiveBulbTests.swift */,
 				D02F03F0C0AF8BC3195AFCB3 /* ScheduleTests.swift */,
+				80A55EEB922DAD5AB6424919 /* CommitQueueTests.swift */,
+				83D9731BB88A26EDC4B2591D /* BulbStoreTests.swift */,
+				F6743BE39F7E16F062DB937C /* ScheduleModelTests.swift */,
 			);
 			path = JibTests;
 			sourceTree = "<group>";
@@ -557,6 +572,9 @@
 				3CE9C67B1412A113F35F4C9E /* FrameCipherTests.swift in Sources */,
 				E8C1AB63D7122727EE9C4897 /* LiveBulbTests.swift in Sources */,
 				B8DF39DA29D17CE7CC7A606A /* ScheduleTests.swift in Sources */,
+				93A379D5B242D8BA7F8935F2 /* CommitQueueTests.swift in Sources */,
+				1DFCC25DB569360A77747BCF /* BulbStoreTests.swift in Sources */,
+				A9ECDA38DC42495525BBC223 /* ScheduleModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +596,7 @@
 				BFF8089E4A6016ED21DEA811 /* LightState+Display.swift in Sources */,
 				D3A534E67B00534601219707 /* Relay.swift in Sources */,
 				A067DF69C6F36CBAF99EE18E /* ScheduleModels.swift in Sources */,
+				BBB43029FDE0D763EAAA9493 /* CommitQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +618,7 @@
 				21B48E216D1D77751D36F206 /* Relay.swift in Sources */,
 				C44C81ED7200506A9112DD6D /* SelectBulbIntent.swift in Sources */,
 				C64377DA99194B9E90F046FF /* ScheduleModels.swift in Sources */,
+				021CD59430BE991EF8695C19 /* CommitQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +648,7 @@
 				94A1EEDB421D7E78F9E876AE /* ScheduleModel.swift in Sources */,
 				61C10E60668E9C5F2769E9C0 /* ScheduleView.swift in Sources */,
 				3936D0BBC55C872A214DF1C9 /* ScheduleRuleFormView.swift in Sources */,
+				8FC58689A4E65A5FEA8E9B60 /* CommitQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +671,7 @@
 				0963D3AE2A64702C4339D60B /* WatchBulbListView.swift in Sources */,
 				D1B3A6007D5CB3FCD4D8D181 /* WatchStore.swift in Sources */,
 				ED93D4E816DA9BB70AC937DF /* ScheduleModels.swift in Sources */,
+				29E1A850205F22FC208826E9 /* CommitQueue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

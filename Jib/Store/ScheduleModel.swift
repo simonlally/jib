@@ -1,6 +1,24 @@
 import Foundation
 import Observation
 
+/// The bulb calls the schedule model makes. Injected so tests can stand in for the network.
+struct ScheduleTransport {
+    var load: (_ host: String) async throws -> BulbSchedule
+    var add: (_ rule: ScheduleRule, _ host: String) async throws -> String
+    var edit: (_ rule: ScheduleRule, _ host: String) async throws -> Void
+    var delete: (_ id: String, _ host: String) async throws -> Void
+    var setEnabled: (_ enabled: Bool, _ host: String) async throws -> Void
+    var setClock: (_ host: String) async throws -> Void
+
+    static let live = ScheduleTransport(
+        load: { try await BulbCommands.schedule(host: $0) },
+        add: { try await BulbCommands.addRule($0, host: $1) },
+        edit: { try await BulbCommands.editRule($0, host: $1) },
+        delete: { try await BulbCommands.deleteRule(id: $0, host: $1) },
+        setEnabled: { try await BulbCommands.setScheduleEnabled($0, host: $1) },
+        setClock: { try await BulbCommands.setClock(host: $0) })
+}
+
 /// The schedule of one bulb as the phone last read it, plus the writes the schedule screen makes.
 /// Every write is followed by a fresh read so the list shows what the bulb actually stored.
 @MainActor
@@ -8,12 +26,18 @@ import Observation
 final class ScheduleModel {
     let bulb: Bulb
     private(set) var schedule: BulbSchedule?
-    private(set) var error: String?
+    /// Why the last read failed. Cleared by a read that succeeds.
+    private(set) var loadError: String?
+    /// Why the last write failed. Cleared when the next write starts, not by the read after it.
+    private(set) var writeError: String?
     private(set) var isLoading = false
     private(set) var isSaving = false
 
-    init(bulb: Bulb) {
+    private let transport: ScheduleTransport
+
+    init(bulb: Bulb, transport: ScheduleTransport = .live) {
         self.bulb = bulb
+        self.transport = transport
     }
 
     var rules: [ScheduleRule] { schedule?.sortedRules ?? [] }
@@ -22,10 +46,10 @@ final class ScheduleModel {
         isLoading = true
         defer { isLoading = false }
         do {
-            schedule = try await BulbCommands.schedule(host: bulb.host)
-            error = nil
+            schedule = try await transport.load(bulb.host)
+            loadError = nil
         } catch {
-            self.error = error.localizedDescription
+            loadError = error.localizedDescription
         }
     }
 
@@ -34,46 +58,53 @@ final class ScheduleModel {
     func save(_ rule: ScheduleRule) async -> Bool {
         await write {
             if rule.isNew {
-                _ = try await BulbCommands.addRule(rule, host: self.bulb.host)
+                _ = try await transport.add(rule, bulb.host)
             } else {
-                try await BulbCommands.editRule(rule, host: self.bulb.host)
+                try await transport.edit(rule, bulb.host)
             }
         }
     }
 
-    func setEnabled(_ enabled: Bool, for rule: ScheduleRule) async {
+    /// Flips one rule. The list shows the flip at once; the read after the write settles it,
+    /// so a rejected flip snaps back and `writeError` says why.
+    @discardableResult
+    func setEnabled(_ enabled: Bool, for rule: ScheduleRule) async -> Bool {
         var updated = rule
         updated.isEnabled = enabled
-        // Show the flip at once; the read after the write settles it.
         if let index = schedule?.rules.firstIndex(where: { $0.id == rule.id }) {
             schedule?.rules[index].isEnabled = enabled
         }
-        await save(updated)
+        return await save(updated)
     }
 
-    func delete(_ rule: ScheduleRule) async {
+    @discardableResult
+    func delete(_ rule: ScheduleRule) async -> Bool {
         schedule?.rules.removeAll { $0.id == rule.id }
-        await write { try await BulbCommands.deleteRule(id: rule.id, host: self.bulb.host) }
+        return await write { try await transport.delete(rule.id, bulb.host) }
     }
 
-    func setAllEnabled(_ enabled: Bool) async {
+    @discardableResult
+    func setAllEnabled(_ enabled: Bool) async -> Bool {
         schedule?.isEnabled = enabled
-        await write { try await BulbCommands.setScheduleEnabled(enabled, host: self.bulb.host) }
+        return await write { try await transport.setEnabled(enabled, bulb.host) }
     }
 
     /// Copies the phone's time to the bulb.
-    func syncClock() async {
-        await write { try await BulbCommands.setClock(host: self.bulb.host) }
+    @discardableResult
+    func syncClock() async -> Bool {
+        await write { try await transport.setClock(bulb.host) }
     }
 
-    /// Runs a write, then re-reads the schedule. Reports whether the write itself succeeded.
+    /// Runs a write, then re-reads the schedule. Reports whether the write itself succeeded; the
+    /// read's own outcome lands in `loadError` and never hides a write failure.
     private func write(_ operation: () async throws -> Void) async -> Bool {
         isSaving = true
+        writeError = nil
         defer { isSaving = false }
         do {
             try await operation()
         } catch {
-            self.error = error.localizedDescription
+            writeError = error.localizedDescription
             await load()
             return false
         }

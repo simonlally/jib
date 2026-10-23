@@ -1,7 +1,8 @@
 import SwiftUI
 
-/// A gradient slider that previews instantly and sends throttled updates while dragging,
-/// then a final value on release. Follows `remote` whenever the user isn't touching it.
+/// A gradient slider that previews instantly and sends updates while dragging, one request at a
+/// time: a request in flight is never cancelled, and the newest value goes out once it completes.
+/// Follows `remote` whenever the user isn't touching it.
 struct LiveSlider: View {
     var remote: Double
     var range: ClosedRange<Double>
@@ -12,16 +13,16 @@ struct LiveSlider: View {
 
     @State private var local: Double = 0
     @State private var isDragging = false
-    @State private var pending: Task<Void, Never>?
+    @State private var queue: CommitQueue<Double>?
 
     var body: some View {
         VStack(spacing: 6) {
             GradientSlider(value: $local, in: range, step: step, gradient: gradient) { dragging in
                 isDragging = dragging
-                if !dragging { send(local, immediate: true) }
+                if !dragging { send(local) }
             }
             .onChange(of: local) { _, newValue in
-                if isDragging { send(newValue, immediate: false) }
+                if isDragging { send(newValue) }
             }
             Text(format(local))
                 .font(.footnote.monospacedDigit())
@@ -34,15 +35,9 @@ struct LiveSlider: View {
         }
     }
 
-    private func send(_ value: Double, immediate: Bool) {
-        pending?.cancel()
-        pending = Task {
-            if !immediate {
-                try? await Task.sleep(for: .milliseconds(120))
-                if Task.isCancelled { return }
-            }
-            await commit(value)
-        }
+    private func send(_ value: Double) {
+        if queue == nil { queue = CommitQueue(commit: commit) }
+        queue?.send(value)
     }
 }
 

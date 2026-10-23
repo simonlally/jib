@@ -27,7 +27,15 @@ struct ScheduleView: View {
                 }
             }
 
-            if let error = model.error {
+            if let error = model.writeError {
+                Section {
+                    Label("The bulb didn’t accept the change. \(error)", systemImage: "exclamationmark.triangle.fill")
+                        .font(.footnote)
+                        .foregroundStyle(.red)
+                }
+            }
+
+            if let error = model.loadError {
                 Section {
                     Label(error, systemImage: "exclamationmark.triangle.fill")
                         .font(.footnote)

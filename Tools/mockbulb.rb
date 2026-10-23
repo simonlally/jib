@@ -77,14 +77,22 @@ loop do
         if s.key?("get_rules")
           out["get_rules"] = { "rule_list" => RULES, "version" => 2, "enable" => CLOCK["enabled"], "err_code" => 0 }
         end
+        # Like the real firmware, refuse a rule with no name or no days, so the apps' failure path can be exercised.
+        invalid = ->(r) { r["name"].to_s.empty? || !(r["wday"] || []).include?(1) }
         if (r = s["add_rule"])
-          id = SecureRandom.hex(16).upcase
-          RULES << r.merge("id" => id)
-          out["add_rule"] = { "id" => id, "err_code" => 0 }
+          if invalid.(r)
+            out["add_rule"] = { "err_code" => -3, "err_msg" => "invalid argument" }
+          else
+            id = SecureRandom.hex(16).upcase
+            RULES << r.merge("id" => id)
+            out["add_rule"] = { "id" => id, "err_code" => 0 }
+          end
         end
         if (r = s["edit_rule"])
           i = RULES.index { |x| x["id"] == r["id"] }
-          out["edit_rule"] = i ? (RULES[i] = r; { "err_code" => 0 }) : { "err_code" => -14, "err_msg" => "rule not found" }
+          out["edit_rule"] = if invalid.(r) then { "err_code" => -3, "err_msg" => "invalid argument" }
+                             elsif i then RULES[i] = r; { "err_code" => 0 }
+                             else { "err_code" => -14, "err_msg" => "rule not found" } end
         end
         if (r = s["delete_rule"])
           RULES.reject! { |x| x["id"] == r["id"] }

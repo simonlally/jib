@@ -46,15 +46,22 @@ enum BulbClient {
         let session = try TCPSession(host: host, port: port, timeout: timeout,
                                      connectTimeout: min(connectTimeout ?? timeout, timeout))
         defer { session.cancel() }
-        try await session.connect()
-        try await session.send(frame)
-        let header = try await session.receive(exactly: 4)
-        let length = Int(UInt32(bigEndianBytes: header))
-        guard length > 0, length < 1_000_000 else { throw BulbError.badResponse("bad frame length \(length)") }
-        let payload = try await session.receive(exactly: length)
-        let json = try JSONSerialization.jsonObject(with: FrameCipher.decrypt(payload))
-        guard let dict = json as? [String: Any] else { throw BulbError.badResponse("not a JSON object") }
-        return dict
+        do {
+            try await session.connect()
+            try await session.send(frame)
+            let header = try await session.receive(exactly: 4)
+            let length = Int(UInt32(bigEndianBytes: header))
+            guard length > 0, length < 1_000_000 else { throw BulbError.badResponse("bad frame length \(length)") }
+            let payload = try await session.receive(exactly: length)
+            let json = try JSONSerialization.jsonObject(with: FrameCipher.decrypt(payload))
+            guard let dict = json as? [String: Any] else { throw BulbError.badResponse("not a JSON object") }
+            return dict
+        } catch {
+            // Cancelling the task tears the connection down, which the callbacks report as a closed
+            // or failed connection. Report the cancellation itself so callers can stay quiet about it.
+            if Task.isCancelled { throw CancellationError() }
+            throw error
+        }
     }
 }
 

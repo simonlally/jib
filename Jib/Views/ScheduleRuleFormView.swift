@@ -221,15 +221,18 @@ struct ScheduleRuleFormView: View {
         if await model.save(rule) {
             dismiss()
         } else {
-            saveError = model.error ?? "The bulb didn’t accept the schedule."
+            saveError = model.writeError ?? "The bulb didn’t accept the schedule."
         }
     }
 
     private func delete() async {
         isSaving = true
         defer { isSaving = false }
-        await model.delete(original)
-        dismiss()
+        if await model.delete(original) {
+            dismiss()
+        } else {
+            saveError = model.writeError ?? "The bulb didn’t delete the schedule."
+        }
     }
 }
 
