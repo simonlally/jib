@@ -88,6 +88,10 @@
 		93A379D5B242D8BA7F8935F2 /* CommitQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A55EEB922DAD5AB6424919 /* CommitQueueTests.swift */; };
 		1DFCC25DB569360A77747BCF /* BulbStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D9731BB88A26EDC4B2591D /* BulbStoreTests.swift */; };
 		A9ECDA38DC42495525BBC223 /* ScheduleModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6743BE39F7E16F062DB937C /* ScheduleModelTests.swift */; };
+		A1B2C3D4E5F60718293A4B11 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B01 /* PrivacyInfo.xcprivacy */; };
+		A1B2C3D4E5F60718293A4B12 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B02 /* PrivacyInfo.xcprivacy */; };
+		A1B2C3D4E5F60718293A4B13 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B03 /* PrivacyInfo.xcprivacy */; };
+		A1B2C3D4E5F60718293A4B14 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B04 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +217,10 @@
 		80A55EEB922DAD5AB6424919 /* CommitQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitQueueTests.swift; sourceTree = "<group>"; };
 		83D9731BB88A26EDC4B2591D /* BulbStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbStoreTests.swift; sourceTree = "<group>"; };
 		F6743BE39F7E16F062DB937C /* ScheduleModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModelTests.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B01 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B02 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B03 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B04 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -256,6 +264,7 @@
 			children = (
 				8059F6649E9EB9B91ED0466A /* Assets.xcassets */,
 				5158E36D3A1D88BF1EC676E1 /* Info.plist */,
+				A1B2C3D4E5F60718293A4B01 /* PrivacyInfo.xcprivacy */,
 				5463478A20E02F0E083F6D00 /* Jib.entitlements */,
 				21CD5775F37DE854E053DAEB /* JibApp.swift */,
 				CC0FA6BCEAC123D5A8906425 /* Connectivity */,
@@ -290,6 +299,7 @@
 			children = (
 				7B078BD57EEFB59BF34F1DF4 /* Assets.xcassets */,
 				CDA2BA0B5033741F84F95FF3 /* Info.plist */,
+				A1B2C3D4E5F60718293A4B02 /* PrivacyInfo.xcprivacy */,
 				587640689D8BAE49C5B905B1 /* JibWatch.entitlements */,
 				BC8242040FA4A15B70F67296 /* JibWatchApp.swift */,
 				D74DA238C42EEEC4F6DE5DCE /* WatchStore.swift */,
@@ -321,6 +331,7 @@
 				12D6D9DCC856AC0F0FAEC107 /* BulbControl.swift */,
 				7FE83492A8C69D0953BEF65D /* BulbIntents.swift */,
 				5C8FC80FEF6FEB27DA8EBEF1 /* Info.plist */,
+				A1B2C3D4E5F60718293A4B03 /* PrivacyInfo.xcprivacy */,
 				049772B317F9A9445CB4C0A7 /* JibWidget.entitlements */,
 				C3DA6C7DD6DCCA2D7113DD93 /* JibWidgetBundle.swift */,
 			);
@@ -378,6 +389,7 @@
 			children = (
 				524FCDE38F8E3056922BB3B2 /* BulbWidget.swift */,
 				965141A30CBB434EA56AB653 /* Info.plist */,
+				A1B2C3D4E5F60718293A4B04 /* PrivacyInfo.xcprivacy */,
 				EAE537B930289790AD2DDD9D /* JibWatchWidget.entitlements */,
 				489D64DAB8F79D32AB163CB9 /* JibWatchWidgetBundle.swift */,
 				DE76C705D6C8A90B59F94D6F /* SelectBulbIntent.swift */,
@@ -405,6 +417,7 @@
 			buildConfigurationList = 98BA4F31441D685A3103B244 /* Build configuration list for PBXNativeTarget "JibWatchWidget" */;
 			buildPhases = (
 				AF3E51BFBDAFF8BF2D78230C /* Sources */,
+				A1B2C3D4E5F60718293A4B24 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -464,6 +477,7 @@
 			buildConfigurationList = DD7EBE965011A4BA1F5A48D6 /* Build configuration list for PBXNativeTarget "JibWidget" */;
 			buildPhases = (
 				A97E6867FAC90039D7B2ACBC /* Sources */,
+				A1B2C3D4E5F60718293A4B23 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -549,6 +563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B2C3D4E5F60718293A4B11 /* PrivacyInfo.xcprivacy in Resources */,
 				2E13052DFF237FC472EE2B10 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,7 +572,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B2C3D4E5F60718293A4B12 /* PrivacyInfo.xcprivacy in Resources */,
 				CE1F5BEBDBBB1604C79E14BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D4E5F60718293A4B23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F60718293A4B13 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1B2C3D4E5F60718293A4B24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1B2C3D4E5F60718293A4B14 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
