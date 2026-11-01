@@ -6,6 +6,8 @@ build/
 *.swp
 
 # Signing material and local configuration
+*.p8
+*.pem
 *.p12
 *.cer
 *.mobileprovision
@@ -15,6 +17,7 @@ build/
 *.local.xcconfig
 .env
 .env.*
+!.env.example
 
 # Local tooling output
 *.log

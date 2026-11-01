@@ -14,8 +14,9 @@ something the app can strengthen. In practice this means:
 
 - Anyone on the same Wi‑Fi network can control the bulbs, with or without Jib.
 - Jib is meant for a home network you trust. Do not forward port 9999 to the internet.
-- Bulb names, addresses, and last‑seen states live on the device in the app's own
-  container. Jib sends them nowhere else.
+- Bulb names, addresses, and last‑seen states stay on your devices, in storage shared
+  with Jib's own extensions. Jib syncs them to your paired Apple Watch over Apple's
+  WatchConnectivity and never uploads them to any server.
 
 ## Scope
 
