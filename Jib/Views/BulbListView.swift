@@ -22,6 +22,8 @@ struct BulbListView: View {
                     Menu {
                         Button { isScanning = true } label: { Label("Scan Network", systemImage: "wifi.router") }
                         Button { isAdding = true } label: { Label("Add by Address", systemImage: "keyboard") }
+                        Button { store.addDemoBulb() } label: { Label("Add Demo Bulb", systemImage: "sparkles") }
+                            .disabled(store.hasDemoBulb)
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -48,11 +50,12 @@ struct BulbListView: View {
         ContentUnavailableView {
             Label("No Bulbs Yet", systemImage: "lightbulb.slash")
         } description: {
-            Text("Jib controls your smart bulbs directly over Wi‑Fi. Scan your network to find them, or add one by IP address.")
+            Text("Jib controls your smart bulbs directly over Wi‑Fi. Scan your network to find them, or add one by IP address. No bulbs? Try the demo bulb, which runs inside the app.")
         } actions: {
             Button("Scan Network") { isScanning = true }
                 .buttonStyle(.borderedProminent)
             Button("Add by Address") { isAdding = true }
+            Button("Try a Demo Bulb") { store.addDemoBulb() }
         }
     }
 }
@@ -69,7 +72,10 @@ struct BulbRow: View {
         HStack(spacing: 14) {
             BulbGlyph(state: info?.state, size: 40)
             VStack(alignment: .leading, spacing: 2) {
-                Text(bulb.name).font(.headline)
+                HStack(spacing: 6) {
+                    Text(bulb.name).font(.headline)
+                    if bulb.isDemo { DemoBadge() }
+                }
                 Text(error ?? info?.state.statusText ?? bulb.host)
                     .font(.subheadline)
                     .foregroundStyle(error == nil ? Color.secondary : Color.red)

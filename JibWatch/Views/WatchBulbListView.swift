@@ -54,7 +54,10 @@ struct WatchBulbRow: View {
             HStack(spacing: 8) {
                 BulbGlyph(state: info?.state, size: 28)
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(bulb.name).lineLimit(1)
+                    HStack(spacing: 4) {
+                        Text(bulb.name).lineLimit(1)
+                        if bulb.isDemo { DemoBadge() }
+                    }
                     Text(error ?? info?.state.statusText ?? "…")
                         .font(.caption2)
                         .foregroundStyle(error == nil ? Color.secondary : Color.red)

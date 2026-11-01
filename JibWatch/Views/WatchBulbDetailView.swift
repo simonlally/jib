@@ -43,6 +43,7 @@ struct WatchBulbDetailView: View {
                 HStack(spacing: 4) {
                     if store.busy.contains(bulb.id) { ProgressView().controlSize(.mini) }
                     Text(state?.statusText ?? "…")
+                    if bulb.isDemo { DemoBadge() }
                 }
                 .font(.footnote)
                 .foregroundStyle(.secondary)

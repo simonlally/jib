@@ -49,6 +49,13 @@ final class BulbStore {
     func bulb(id: UUID) -> Bulb? { bulbs.first { $0.id == id } }
     func bulb(host: String) -> Bulb? { bulbs.first { $0.host == host } }
     func hasBulb(host: String) -> Bool { bulb(host: host) != nil }
+    var hasDemoBulb: Bool { bulbs.contains(where: \.isDemo) }
+
+    /// Adds the in-app demo bulb, for trying Jib without hardware. There is only ever one.
+    func addDemoBulb() {
+        guard !hasDemoBulb else { return }
+        add(.demo())
+    }
 
     func add(_ bulb: Bulb) {
         bulbs.append(bulb)
@@ -69,12 +76,12 @@ final class BulbStore {
 
     func remove(_ bulb: Bulb) {
         bulbs.removeAll { $0.id == bulb.id }
-        forget(bulb.id)
+        forget(bulb)
         persist()
     }
 
     func remove(atOffsets offsets: IndexSet) {
-        for index in offsets { forget(bulbs[index].id) }
+        for index in offsets { forget(bulbs[index]) }
         bulbs.remove(atOffsets: offsets)
         persist()
     }
@@ -84,12 +91,14 @@ final class BulbStore {
         persist()
     }
 
-    private func forget(_ id: UUID) {
-        infos[id] = nil
-        errors[id] = nil
-        BulbStorage.setState(nil, for: id, in: defaults)
-        lastShared[id] = nil
+    private func forget(_ bulb: Bulb) {
+        infos[bulb.id] = nil
+        errors[bulb.id] = nil
+        BulbStorage.setState(nil, for: bulb.id, in: defaults)
+        lastShared[bulb.id] = nil
         persistLastShared()
+        // The demo bulb's light, rules and clock go with it, so the next one starts fresh.
+        if bulb.isDemo { DemoBulb.reset(in: defaults) }
     }
 
     private func persist() {

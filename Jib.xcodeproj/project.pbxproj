@@ -92,6 +92,11 @@
 		A1B2C3D4E5F60718293A4B12 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B02 /* PrivacyInfo.xcprivacy */; };
 		A1B2C3D4E5F60718293A4B13 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B03 /* PrivacyInfo.xcprivacy */; };
 		A1B2C3D4E5F60718293A4B14 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B04 /* PrivacyInfo.xcprivacy */; };
+		DE3B0B01C0DE0001DEAD0011 /* DemoBulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3B0B01C0DE0001DEAD0001 /* DemoBulb.swift */; };
+		DE3B0B01C0DE0001DEAD0012 /* DemoBulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3B0B01C0DE0001DEAD0001 /* DemoBulb.swift */; };
+		DE3B0B01C0DE0001DEAD0013 /* DemoBulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3B0B01C0DE0001DEAD0001 /* DemoBulb.swift */; };
+		DE3B0B01C0DE0001DEAD0014 /* DemoBulb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3B0B01C0DE0001DEAD0001 /* DemoBulb.swift */; };
+		DE3B0B01C0DE0001DEAD0015 /* DemoBulbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3B0B01C0DE0001DEAD0002 /* DemoBulbTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +214,8 @@
 		F270F810827FC8A67A22FAFA /* BulbFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbFormView.swift; sourceTree = "<group>"; };
 		FEA5C6A4FA4975C842274E69 /* BulbParsingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulbParsingTests.swift; sourceTree = "<group>"; };
 		A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModels.swift; sourceTree = "<group>"; };
+		DE3B0B01C0DE0001DEAD0001 /* DemoBulb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBulb.swift; sourceTree = "<group>"; };
+		DE3B0B01C0DE0001DEAD0002 /* DemoBulbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBulbTests.swift; sourceTree = "<group>"; };
 		29B6230DF98576878686A81D /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
 		7C325E07A3F35AF1ABC25B1C /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		837F1EED0A515334755FB6FD /* ScheduleRuleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRuleFormView.swift; sourceTree = "<group>"; };
@@ -246,6 +253,7 @@
 				DB4CAFA252A6DB44FCC0ECFE /* BulbDiscovery.swift */,
 				2DCDAD8796A98783BFE9A5AE /* BulbModels.swift */,
 				2BCDF9951B719B09323F04FC /* FrameCipher.swift */,
+				DE3B0B01C0DE0001DEAD0001 /* DemoBulb.swift */,
 				A88B40D9CC7095B841C9BB82 /* ScheduleModels.swift */,
 			);
 			path = Protocol;
@@ -360,6 +368,7 @@
 				D02F03F0C0AF8BC3195AFCB3 /* ScheduleTests.swift */,
 				80A55EEB922DAD5AB6424919 /* CommitQueueTests.swift */,
 				83D9731BB88A26EDC4B2591D /* BulbStoreTests.swift */,
+				DE3B0B01C0DE0001DEAD0002 /* DemoBulbTests.swift */,
 				F6743BE39F7E16F062DB937C /* ScheduleModelTests.swift */,
 			);
 			path = JibTests;
@@ -600,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3B0B01C0DE0001DEAD0015 /* DemoBulbTests.swift in Sources */,
 				17584CB0AB77733512F3B912 /* BulbParsingTests.swift in Sources */,
 				3CE9C67B1412A113F35F4C9E /* FrameCipherTests.swift in Sources */,
 				E8C1AB63D7122727EE9C4897 /* LiveBulbTests.swift in Sources */,
@@ -614,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3B0B01C0DE0001DEAD0012 /* DemoBulb.swift in Sources */,
 				51977464B11C882998EE0347 /* Bulb.swift in Sources */,
 				E0C5E7D55B378AC5AD946DBB /* BulbClient.swift in Sources */,
 				3457985CA937A84C3A36B587 /* BulbCommands.swift in Sources */,
@@ -636,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3B0B01C0DE0001DEAD0014 /* DemoBulb.swift in Sources */,
 				B40FB7F58CFB114B46A7A0AA /* Bulb.swift in Sources */,
 				188BBABC0485A60EB4D01DC1 /* BulbClient.swift in Sources */,
 				B7AF0F2DF07F86193275DBF7 /* BulbCommands.swift in Sources */,
@@ -658,6 +670,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3B0B01C0DE0001DEAD0011 /* DemoBulb.swift in Sources */,
 				395D7F34AA0AF9C48E20AE11 /* Bulb.swift in Sources */,
 				A5362E5143996A958201AE51 /* BulbClient.swift in Sources */,
 				5F3D846A2867609B33DF9928 /* BulbCommands.swift in Sources */,
@@ -688,6 +701,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3B0B01C0DE0001DEAD0013 /* DemoBulb.swift in Sources */,
 				EB8A1D9E44534F1BF518F3D6 /* Bulb.swift in Sources */,
 				CBA80DEA47AD30C8D84854E9 /* BulbClient.swift in Sources */,
 				A574215C573F367F1A00F90A /* BulbCommands.swift in Sources */,

@@ -25,6 +25,17 @@ struct BulbDetailView: View {
             }
             .listRowBackground(Color.clear)
 
+            if bulb.isDemo {
+                Section {
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        DemoBadge()
+                        Text("This demo bulb runs inside Jib and controls no hardware. Everything here works on it, including schedules and the Control Center control.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+
             if info?.isDimmable ?? true {
                 Section("Brightness") {
                     LiveSlider(remote: Double(state?.brightness ?? 100), range: 1...100, step: 1,
@@ -111,7 +122,7 @@ struct BulbDetailView: View {
             }
 
             Section("Device") {
-                LabeledContent("Address", value: bulb.host)
+                LabeledContent("Address", value: bulb.isDemo ? "None (demo bulb)" : bulb.host)
                 if let info {
                     LabeledContent("Name on Bulb", value: info.alias)
                     LabeledContent("Model", value: info.model)
