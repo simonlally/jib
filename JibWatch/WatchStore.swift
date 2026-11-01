@@ -86,10 +86,10 @@ final class WatchStore {
     /// `jib://toggle/<id>`: the complication was tapped. Runs as soon as the phone can answer.
     func handle(_ url: URL) {
         guard let id = JibLink.bulbID(fromToggleURL: url) else {
-            log.error("ignoring url \(url.absoluteString, privacy: .public)")
+            log.error("ignoring url \(url.absoluteString, privacy: .private)")
             return
         }
-        log.info("complication tap for \(id, privacy: .public); phone reachable: \(self.isPhoneReachable)")
+        log.info("complication tap for \(id, privacy: .private); phone reachable: \(self.isPhoneReachable)")
         pendingToggle = (id, Date())
         runPendingToggle()
     }
@@ -99,7 +99,7 @@ final class WatchStore {
     private func runPendingToggle() {
         guard let pending = pendingToggle, isPhoneReachable, !pendingToggleInFlight else { return }
         guard Date().timeIntervalSince(pending.requested) < 20, let bulb = bulb(id: pending.id) else {
-            log.error("dropping stale or unknown complication toggle for \(pending.id, privacy: .public)")
+            log.error("dropping stale or unknown complication toggle for \(pending.id, privacy: .private)")
             pendingToggle = nil
             return
         }
@@ -176,7 +176,7 @@ final class WatchStore {
             }
             return nil
         } catch {
-            log.error("\(bulb.name, privacy: .public): \(error.localizedDescription, privacy: .public)")
+            log.error("\(bulb.name, privacy: .private): \(error.localizedDescription, privacy: .private)")
             // The list's footer already says when the phone is out of reach; a per-bulb error would
             // only paint every row red while the link comes up. A superseded request is old news.
             if !Self.isReachabilityError(error), latestOperation[bulb.id] == ticket {

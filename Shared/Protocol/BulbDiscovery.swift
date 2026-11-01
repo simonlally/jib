@@ -58,7 +58,7 @@ enum BulbDiscovery {
             let info = try await BulbCommands.sysInfo(host: host, timeout: timeout, connectTimeout: connectTimeout)
             return DiscoveredBulb(host: host, info: info)
         } catch {
-            log.debug("probe \(host, privacy: .public): \(error.localizedDescription, privacy: .public)")
+            log.debug("probe \(host, privacy: .private): \(error.localizedDescription, privacy: .private)")
             return nil
         }
     }

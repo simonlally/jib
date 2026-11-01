@@ -4,3 +4,17 @@ DerivedData/
 build/
 .DS_Store
 *.swp
+
+# Signing material and local configuration
+*.p12
+*.cer
+*.mobileprovision
+*.provisionprofile
+*.xcarchive
+*.ipa
+*.local.xcconfig
+.env
+.env.*
+
+# Local tooling output
+*.log

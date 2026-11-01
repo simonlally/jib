@@ -5,7 +5,14 @@ port‑9999 JSON protocol (length‑prefixed frames, autokey‑XOR obfuscation).
 bulbs directly on your network. No cloud, no account.
 
 Tested with a color bulb and a dimmable white bulb. Anything that answers `get_sysinfo`
-with a `light_state` should work.
+with a `light_state` should work. The bulbs must already be joined to your Wi‑Fi (done once
+with the maker's own app); Jib does not do initial setup, and it only reaches bulbs that
+still answer on port 9999 after any firmware update. The watch app needs the phone nearby.
+
+Jib is an independent project, not affiliated with or endorsed by any bulb manufacturer.
+The protocol is unauthenticated and only lightly obfuscated, so anyone on the same network
+can control the bulbs; use it on a home network you trust and never expose port 9999 to the
+internet. See `SECURITY.md`.
 
 ## What it does
 
@@ -57,11 +64,19 @@ Requirements: Xcode 26 or later, iOS 17 / watchOS 10 deployment targets.
 Open `Jib.xcodeproj` and run the `Jib` scheme. The project file is the source of truth; there is
 no generator step.
 
-To run on your own devices, set your team under *Signing & Capabilities* for all four app
-targets (`Jib`, `JibWidget`, `JibWatch`, `JibWatchWidget`). A free Apple ID (Personal Team)
-is enough: App Groups work without a paid membership, but the profile expires after a week,
-so re-run from Xcode when the app stops launching. Running the `Jib` scheme on an iPhone with
-a paired watch installs both apps.
+To run on your own devices you need your own identifiers, since the ones in the repo belong
+to the original developer's team. Change all of these together:
+
+- The bundle identifiers of the four app targets (`dev.simonlally.Jib`, `.widget`,
+  `.watchkitapp`, `.watchkitapp.widget`) under *Signing & Capabilities*. The watch app's
+  `WKCompanionAppBundleIdentifier` in `JibWatch/Info.plist` must match the phone app's.
+- The App Group `group.dev.simonlally.Jib` in the four `.entitlements` files and in
+  `Shared/Store/BulbStorage.swift`. Enable that group on all four App IDs.
+- Your team under *Signing & Capabilities* for all four targets.
+
+A free Apple ID (Personal Team) is enough: App Groups work without a paid membership, but
+the profile expires after a week, so re-run from Xcode when the app stops launching. Running
+the `Jib` scheme on an iPhone with a paired watch installs both apps.
 
 The first time the phone app touches a bulb, iOS asks for Local Network access. Allow it;
 if you decline, every request fails until you re‑enable it in Settings → Privacy → Local Network.
