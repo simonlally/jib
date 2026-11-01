@@ -90,6 +90,7 @@ Shared/Protocol/     Protocol code compiled into both apps
   BulbClient.swift     one request/reply over NWConnection, with connect + reply deadlines
   BulbCommands.swift   get_sysinfo / transition_light_state
   BulbModels.swift     LightState, BulbInfo, BulbAction, parsing
+  DemoBulb.swift       in-app demo bulb that answers the same requests, no network
   BulbDiscovery.swift  subnet sweep
 Shared/Models/       Bulb record, watch↔phone relay types, display colors
 Shared/Store/        App Group storage: saved bulbs, last-seen states, jib:// links
@@ -123,6 +124,22 @@ ruby Tools/mockbulb.rb
 TEST_RUNNER_TEST_BULB_HOST=192.168.1.23 xcodebuild test -project Jib.xcodeproj -scheme Jib \
   -destination 'platform=iOS Simulator,name=iPhone 17' -only-testing:JibTests/LiveBulbTests
 ```
+
+## Demo bulb
+
+Jib can add a **demo bulb**: a bulb that runs inside the app and controls no hardware. It
+answers the same requests a real bulb does (`get_sysinfo`, `transition_light_state`, the
+schedule and time services), so every screen works on it: the list toggle, the brightness,
+white and colour sliders, presets, schedules (rules set a minute ahead fire when the app next
+asks), the Control Center control and the watch app and complication through the phone's
+relay. Its state lives in the App Group container, so it survives relaunch and is shared with
+the extensions. It never opens a network connection: `BulbClient` answers the address `demo`
+in-process (`Shared/Protocol/DemoBulb.swift`), and the real protocol path is untouched.
+
+Add it from the empty-list screen, the **+** menu, or the Scan sheet when nothing is found. It
+is marked **DEMO** wherever it appears and is removed like any other bulb, which also forgets
+its state. It exists so that someone with no compatible bulbs, such as App Review, can try the
+app: the App Review notes should point at it ("tap *Try a Demo Bulb* on the first screen").
 
 ## Protocol notes
 

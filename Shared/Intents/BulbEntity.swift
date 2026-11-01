@@ -18,7 +18,7 @@ struct BulbEntity: AppEntity {
     }
 
     var displayRepresentation: DisplayRepresentation {
-        DisplayRepresentation(title: "\(name)", subtitle: "\(host)")
+        DisplayRepresentation(title: "\(name)", subtitle: DemoBulb.isHost(host) ? "Demo bulb" : "\(host)")
     }
 }
 

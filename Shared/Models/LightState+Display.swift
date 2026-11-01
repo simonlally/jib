@@ -44,6 +44,19 @@ extension Color {
     }
 }
 
+/// Marks the in-app demo bulb wherever a bulb is shown, so it can't be taken for hardware.
+struct DemoBadge: View {
+    var body: some View {
+        Text("DEMO")
+            .font(.caption2.weight(.bold))
+            .padding(.horizontal, 5)
+            .padding(.vertical, 1)
+            .foregroundStyle(.orange)
+            .background(Capsule().fill(.orange.opacity(0.18)))
+            .accessibilityLabel("Demo bulb")
+    }
+}
+
 /// Lightbulb icon tinted with the bulb's current light. Shared by phone and watch.
 struct BulbGlyph: View {
     let state: LightState?

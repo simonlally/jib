@@ -81,6 +81,21 @@ struct DiscoveryView: View {
                         }
                     }
                 }
+
+                if !scanning, found.isEmpty, !store.hasDemoBulb {
+                    Section {
+                        Button {
+                            store.addDemoBulb()
+                            dismiss()
+                        } label: {
+                            Label("Add a Demo Bulb Instead", systemImage: "sparkles")
+                        }
+                    } header: {
+                        Text("No Bulbs?")
+                    } footer: {
+                        Text("The demo bulb runs inside Jib and controls no hardware. It lets you try every screen, and can be removed like any other bulb.")
+                    }
+                }
             }
             .navigationTitle("Scan Network")
             .navigationBarTitleDisplayMode(.inline)

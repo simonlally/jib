@@ -19,6 +19,8 @@ struct BulbFormView: View {
     @State private var confirmingRemove = false
 
     private var isAdd: Bool { if case .add = mode { return true } else { return false } }
+    /// The demo bulb has no address to edit or test.
+    private var isDemo: Bool { if case .edit(let bulb) = mode { return bulb.isDemo } else { return false } }
     private var trimmedHost: String { host.trimmingCharacters(in: .whitespacesAndNewlines) }
 
     var body: some View {
@@ -26,32 +28,21 @@ struct BulbFormView: View {
             Form {
                 Section {
                     TextField("Name", text: $name)
-                    TextField("IP address", text: $host)
-                        .keyboardType(.numbersAndPunctuation)
-                        .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
+                    if !isDemo {
+                        TextField("IP address", text: $host)
+                            .keyboardType(.numbersAndPunctuation)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                    }
                 } footer: {
-                    Text("Find the address in your router’s client list or the bulb’s own app. Give the bulb a fixed address in your router so it doesn’t change.")
-                }
-
-                Section {
-                    Button {
-                        Task { await testConnection() }
-                    } label: {
-                        HStack {
-                            Text("Test Connection")
-                            Spacer()
-                            if testing { ProgressView() }
-                        }
-                    }
-                    .disabled(trimmedHost.isEmpty || testing)
-
-                    if let testMessage {
-                        Label(testMessage, systemImage: testSucceeded ? "checkmark.circle.fill" : "xmark.octagon.fill")
-                            .font(.footnote)
-                            .foregroundStyle(testSucceeded ? Color.green : Color.red)
+                    if isDemo {
+                        Text("This is the demo bulb. It runs inside Jib and has no address.")
+                    } else {
+                        Text("Find the address in your router’s client list or the bulb’s own app. Give the bulb a fixed address in your router so it doesn’t change.")
                     }
                 }
+
+                if !isDemo { testSection }
 
                 if case .edit = mode {
                     Section {
@@ -81,6 +72,27 @@ struct BulbFormView: View {
                     name = bulb.name
                     host = bulb.host
                 }
+            }
+        }
+    }
+
+    private var testSection: some View {
+        Section {
+            Button {
+                Task { await testConnection() }
+            } label: {
+                HStack {
+                    Text("Test Connection")
+                    Spacer()
+                    if testing { ProgressView() }
+                }
+            }
+            .disabled(trimmedHost.isEmpty || testing)
+
+            if let testMessage {
+                Label(testMessage, systemImage: testSucceeded ? "checkmark.circle.fill" : "xmark.octagon.fill")
+                    .font(.footnote)
+                    .foregroundStyle(testSucceeded ? Color.green : Color.red)
             }
         }
     }

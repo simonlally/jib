@@ -37,6 +37,9 @@ enum BulbClient {
     ///     addresses where nothing lives. Defaults to `timeout`.
     static func send(_ command: [String: Any], to host: String, timeout: TimeInterval = 6,
                      connectTimeout: TimeInterval? = nil) async throws -> [String: Any] {
+        // The demo bulb lives inside the app and answers here; nothing below runs for it.
+        if DemoBulb.isHost(host) { return DemoBulb.reply(to: command) }
+
         let body = try JSONSerialization.data(withJSONObject: command)
         let encrypted = FrameCipher.encrypt(body)
         var frame = Data(capacity: 4 + encrypted.count)
@@ -67,6 +70,10 @@ enum BulbClient {
 
 /// Minimal async wrapper around NWConnection with a hard deadline for the whole exchange.
 final class TCPSession: @unchecked Sendable {
+    /// How many sessions have been opened in this process. Tests use it to prove a path never
+    /// reached the network.
+    static let opened = SessionCounter()
+
     private let connection: NWConnection
     private let queue = DispatchQueue(label: "dev.simonlally.jib.tcp")
     private let lock = NSLock()
@@ -85,6 +92,7 @@ final class TCPSession: @unchecked Sendable {
         let parameters = NWParameters(tls: nil, tcp: tcp)
         parameters.preferNoProxies = true
         connection = NWConnection(host: NWEndpoint.Host(trimmed), port: port, using: parameters)
+        Self.opened.increment()
 
         // Two deadlines: give up fast if the handshake stalls, but allow a slow first reply.
         queue.asyncAfter(deadline: .now() + connectTimeout) { [weak self] in
@@ -188,6 +196,14 @@ final class TCPSession: @unchecked Sendable {
         if didTimeOut { return .timeout(lastKnown: reason.map { "\(phase): \($0)" } ?? phase) }
         return .connection(error?.localizedDescription ?? reason ?? "cancelled")
     }
+}
+
+final class SessionCounter: @unchecked Sendable {
+    private let lock = NSLock()
+    private var count = 0
+
+    var value: Int { lock.withLock { count } }
+    func increment() { lock.withLock { count += 1 } }
 }
 
 /// Resumes a continuation at most once, no matter how many callbacks fire.
