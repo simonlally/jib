@@ -214,7 +214,7 @@ struct BulbRow: View {
                 .labelsHidden()
                 .disabled(info == nil && error == nil)
             }
-            if showsChevron {
+            if showsChevron && !isEditing {
                 Image(systemName: "chevron.right")
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(.tertiary)
