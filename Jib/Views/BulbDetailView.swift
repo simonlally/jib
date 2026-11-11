@@ -3,7 +3,9 @@ import SwiftUI
 struct BulbDetailView: View {
     @Environment(BulbStore.self) private var store
     let bulbID: UUID
-    @State private var isEditing = false
+    /// Opens the edit sheet. The sheet belongs to `BulbListView`, which outlives this screen when
+    /// the layout switches between one column and two.
+    let edit: (Bulb) -> Void
 
     var body: some View {
         if let bulb = store.bulb(id: bulbID) {
@@ -95,9 +97,7 @@ struct BulbDetailView: View {
             }
 
             Section {
-                NavigationLink {
-                    ScheduleView(bulb: bulb)
-                } label: {
+                NavigationLink(value: BulbRoute.schedule(bulb.id)) {
                     Label("Schedule", systemImage: "clock")
                 }
             }
@@ -125,11 +125,9 @@ struct BulbDetailView: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 // An icon, not "Edit": side by side, this sits next to the list's Edit button.
-                Button { isEditing = true } label: { Label("Edit Bulb", systemImage: "pencil") }
+                Button { edit(bulb) } label: { Label("Edit Bulb", systemImage: "pencil") }
             }
-            .prefersVerticalBar()
         }
-        .sheet(isPresented: $isEditing) { BulbFormView(mode: .edit(bulb)) }
         .task(id: bulb.id) { await store.refresh(bulb) }
     }
 }
