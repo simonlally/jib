@@ -124,8 +124,10 @@ struct BulbDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button("Edit") { isEditing = true }
+                // An icon, not "Edit": side by side, this sits next to the list's Edit button.
+                Button { isEditing = true } label: { Label("Edit Bulb", systemImage: "pencil") }
             }
+            .prefersVerticalBar()
         }
         .sheet(isPresented: $isEditing) { BulbFormView(mode: .edit(bulb)) }
         .task(id: bulb.id) { await store.refresh(bulb) }
